@@ -9,7 +9,7 @@ def index(request):
     context = {
         'latest_posts_list': latest_posts_list,
     }
-    return render(request, 'posts/index.html', context)
+    return render(request, 'index.html', context)
 
 
 def post(request, post_id):
@@ -18,4 +18,4 @@ def post(request, post_id):
 
 def detail(request, post_id):
         post = get_object_or_404(Post, pk=post_id)
-        return render(request, 'posts/detail.html', {'post': post})
+        return render(request, 'detail.html', {'post': post})

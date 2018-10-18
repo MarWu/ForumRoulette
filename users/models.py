@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class User(models.Model):
+class User(models.Model):   # TestUser: Test | TestPassword123
     username = models.CharField(max_length=50)
     email = models.EmailField()
     password = 'How do I do this?!?'
