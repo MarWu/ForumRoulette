@@ -22,6 +22,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    creator = models.ForeignKey(users.User, on_delete=models.DO_NOTHING, default=0)
     comment_text = models.CharField(max_length=500)
     pub_date = models.DateTimeField('date published')
     up_votes = models.IntegerField(default=0)

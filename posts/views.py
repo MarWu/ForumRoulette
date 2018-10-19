@@ -19,3 +19,7 @@ def post(request, post_id):
 def detail(request, post_id):
         post = get_object_or_404(Post, pk=post_id)
         return render(request, 'detail.html', {'post': post})
+
+
+def create_post(request):
+    return render(request, 'createPost.html')

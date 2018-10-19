@@ -1,5 +1,18 @@
-<h1>{{ post.post_title }}</h1>
-<p>Upvotes: {{ post.up_votes }}</p>
-<p>Downvotes: {{ post.down_votes }}</p>
-<hr>
-<p>{{ post.post_text }}</p>
+{% extends 'base_generic.html' %}
+
+{% block title %}<title>{{ post.post_title }}</title>{% endblock %}
+
+{% block content %}
+    <h1>{{ post.post_title }}</h1>
+    <p>Creator: {{ post.creator }}</p>
+    <p>Upvotes: {{ post.up_votes }}</p>
+    <p>Downvotes: {{ post.down_votes }}</p>
+    <hr>
+    <p>{{ post.post_text }}</p>
+    <hr><hr>
+    {% for comment in post.comment_set.all %}
+        <p>Creator: {{ comment.creator }}</p>
+        <p>{{ comment.comment_text }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
