@@ -30,7 +30,7 @@ def create_post(request):
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
-            p = Post(creator_id=1, post_title=form.cleaned_data['post_title'], post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
+            p = Post(creator=request.user, post_title=form.cleaned_data['post_title'], post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
             p.save()
             return redirect('posts:index')
     else:
