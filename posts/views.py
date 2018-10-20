@@ -10,7 +10,7 @@ from users.models import UserInfo
 
 
 def index(request):
-    latest_posts_list = Post.objects.order_by('-pub_date')[:10]
+    latest_posts_list = Post.objects.order_by('-pub_date')[:30]
     context = {
         'latest_posts_list': latest_posts_list,
     }

@@ -22,7 +22,7 @@
                 </ul>
                 <ul class="sidebar-nav">
 
-                    ...
+                    <hr>
 
                     {% if user.is_authenticated %}
                         <li>User: <a href="{% url 'users:profile' user.get_username %}">{{ user.get_username }}</a></li>
