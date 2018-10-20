@@ -5,7 +5,7 @@
 {% block content %}
     <form method="post" action="{% url 'posts:create' %}">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <input type="submit"/>
     </form>
 {% endblock %}

@@ -4,14 +4,14 @@
 
 {% block content %}
     <h1>{{ post.post_title }}</h1>
-    <p>Creator: {{ post.creator }}</p>
+    <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
     <p>Upvotes: {{ post.up_votes }}</p>
     <p>Downvotes: {{ post.down_votes }}</p>
     <hr>
     <p>{{ post.post_text }}</p>
     <hr><hr>
     {% for comment in post.comment_set.all %}
-        <p>Creator: {{ comment.creator }}</p>
+        <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
         <p>{{ comment.comment_text }}</p>
         <hr>
     {% endfor %}
