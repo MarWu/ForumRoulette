@@ -5,6 +5,7 @@
 {% block content %}
     <h1>{{ post.post_title }}</h1>
     <a href="{% url 'posts:comment' post.id %}">Comment</a>
+    <p>Posted: {{ post.time_since_published }}</p>
     <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
     <p>Upvotes: {{ post.vote_count }}
 
@@ -22,6 +23,7 @@
     <hr>
     {% for comment in post.comment_set.all %}
         <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
+        <p>Posted: {{ comment.pub_date }}</p>
         <p>{{ comment.comment_text }}</p>
         <hr>
     {% endfor %}
