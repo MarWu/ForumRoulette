@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Post
 from .forms import CreatePostForm
+from users.models import UserInfo
 
 
 def index(request):
@@ -30,8 +31,13 @@ def create_post(request):
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
-            p = Post(creator=request.user, post_title=form.cleaned_data['post_title'], post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
+            current_user = request.user
+            p = Post(creator=current_user, post_title=form.cleaned_data['post_title'],
+                     post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
             p.save()
+            post_count = get_object_or_404(UserInfo, user_reference=current_user)
+            post_count.post_count += 1
+            post_count.save()
             return redirect('posts:index')
     else:
         form = CreatePostForm()
