@@ -4,12 +4,22 @@
 
 {% block content %}
     <h1>{{ post.post_title }}</h1>
+    <a href="{% url 'posts:comment' post.id %}">Comment</a>
     <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
-    <p>Upvotes: {{ post.up_votes }}</p>
+    <p>Upvotes: {{ post.vote_count }}
+
+            {% if has_voted == 1 %}
+                You have already voted
+            {% else %}
+                <a href="{% url 'posts:vote' post.id %}">+</a>
+            {% endif %}
+
+    </p>
     <p>Downvotes: {{ post.down_votes }}</p>
     <hr>
     <p>{{ post.post_text }}</p>
-    <hr><hr>
+    <hr>
+    <hr>
     {% for comment in post.comment_set.all %}
         <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
         <p>{{ comment.comment_text }}</p>
