@@ -16,3 +16,6 @@ class User(models.Model):   # TestUser: Test | TestPassword123
 class UserInfo(models.Model):
     user_reference = models.ForeignKey(SystemUser, on_delete=models.CASCADE)
     post_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user_reference.username
