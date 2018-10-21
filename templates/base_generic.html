@@ -25,6 +25,8 @@
                     <hr>
 
                     {% if user.is_authenticated %}
+                        <a href="{% url 'posts:random' %}">Random Roulette</a>
+                        <hr>
                         <li>User: <a href="{% url 'users:profile' user.get_username %}">{{ user.get_username }}</a></li>
                         <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>
                     {% else %}

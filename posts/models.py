@@ -1,4 +1,6 @@
 import datetime
+import random
+from random import randint
 
 from django.db import models
 from django.utils import timezone
@@ -22,6 +24,10 @@ class Post(models.Model):
 
     def vote_count(self):
         return self.up_votes_list.count()
+
+    # def random(self):
+    #     all_posts = self.id.
+    #     return random.choice(all_posts)
 
 
 class Comment(models.Model):

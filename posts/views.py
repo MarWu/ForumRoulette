@@ -1,3 +1,5 @@
+import random
+
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.utils import timezone
 
@@ -62,16 +64,33 @@ def vote(request, post_id):
     return redirect('posts:detail', current_post.id)
 
 
-def create_comment(request, post_id):   # Create permissions
+def create_comment(request, post_id):  # Create permissions
     current_post = get_object_or_404(Post, pk=post_id)
     if request.method == 'POST':
         form = CreateCommentForm(request.POST)
         if form.is_valid():
             current_user = request.user
+            user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
             comment = Comment(post=current_post, creator=current_user, comment_text=form.cleaned_data['comment_text'],
                               pub_date=timezone.now())
             comment.save()
+            user_info.random_post = None
+            user_info.save()
             return redirect('posts:detail', current_post.id)
     else:
         form = CreateCommentForm()
     return render(request, 'createComment.html', {'form': form, 'post': current_post})
+
+
+def random_comment(request):
+    current_user = request.user
+    user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
+    if user_info.random_post is None:
+        all_posts = Post.objects.all()
+        random_post = random.choice(all_posts)
+        random_id = random_post.id
+        user_info.random_post = random_post
+        user_info.save()
+        return redirect('posts:detail', random_id)
+    else:
+        return redirect('posts:detail', user_info.random_post.id)
