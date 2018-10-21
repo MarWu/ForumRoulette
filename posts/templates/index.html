@@ -2,8 +2,7 @@
 
 {% block content %}
 {% if latest_posts_list %}
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
     <ul id="posts">
@@ -18,10 +17,13 @@
                 <div class="glyphicon glyphicon-arrow-down dislike"></div>
             </div>
 
-            <div>
+            <div class="link">
                 <h3>{{ post.post_title }}</h3>
                 <a href="{% url 'posts:detail' post.id %}">{{ post.post_text }}</a>
-                <a href='#'>{{ post.creator }}</a>
+                <div class="information">
+                    <a href='#'>Posted by {{ post.creator }}</a>
+                    <a class="glyphicon glyphicon-comment"> comments</a>
+                </div>
             </div>
         </li>
         {% endfor %}
