@@ -17,7 +17,12 @@ from posts.models import Post
 class UserInfo(models.Model):
     user_reference = models.ForeignKey(SystemUser, on_delete=models.CASCADE)
     post_count = models.IntegerField(default=0)
-    random_post = models.ForeignKey(Post, blank=True, null=True, on_delete=models.DO_NOTHING)   # TODO: User XP
+    random_post = models.ForeignKey(Post, blank=True, null=True, on_delete=models.DO_NOTHING)
+    xp = models.IntegerField(default=0)  # TODO: User XP
 
     def __str__(self):
         return self.user_reference.username
+
+    def posts_available(self):
+        total_posts = int((self.xp / 100) // 1)
+        return total_posts - self.post_count

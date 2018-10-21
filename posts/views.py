@@ -8,11 +8,19 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Post, Comment
 from .forms import CreatePostForm, CreateCommentForm
-from users.models import UserInfo
+from users.models import UserInfo, SystemUser
 
 
 def not_admin_check(user):
     return not user.username == 'admin'
+
+
+def can_post_check(user):
+    user_info = get_object_or_404(UserInfo, pk=user.id)
+    if user_info.posts_available() >= 1:
+        return True
+    else:
+        return False
 
 
 # def can_comment_check(user, post_id):
@@ -48,8 +56,9 @@ def detail(request, post_id):
 
 
 @login_required
-@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')
-def create_post(request):
+@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')  # TODO: Improve forwarding
+@user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
+def create_post(request):   # TODO: Restrict post-creation according to XP-Progress
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
@@ -57,9 +66,9 @@ def create_post(request):
             p = Post(creator=current_user, post_title=form.cleaned_data['post_title'],
                      post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
             p.save()
-            post_count = get_object_or_404(UserInfo, user_reference=current_user)
-            post_count.post_count += 1
-            post_count.save()
+            user_info = get_object_or_404(UserInfo, user_reference=current_user)
+            user_info.post_count += 1
+            user_info.save()
             return redirect('posts:detail', p.id)
     else:
         form = CreatePostForm()
@@ -71,6 +80,10 @@ def vote(request, post_id):
     current_post = get_object_or_404(Post, pk=post_id)
     current_user = request.user
     current_post.up_votes_list.add(current_user)
+    post_creator = get_object_or_404(SystemUser, id=current_post.creator.id)
+    creator_info = get_object_or_404(UserInfo, user_reference=post_creator.id)
+    creator_info.xp += 5
+    creator_info.save()
     return redirect('posts:detail', current_post.id)
 
 
@@ -89,6 +102,7 @@ def create_comment(request, post_id):  # Create permissions
                                   pub_date=timezone.now())
                 comment.save()
                 user_info.random_post = None
+                user_info.xp += 20
                 user_info.save()
                 return redirect('posts:detail', current_post.id)
         else:

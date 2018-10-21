@@ -1,10 +1,12 @@
 {% extends 'base_generic.html' %}
 
-{% block title %}<title>{{ user.username }}</title>{% endblock %}
+{% block title %}<title>{{ selected_user.username }}</title>{% endblock %}
 
 {% block content %}
-<h2>{{ user.username }}</h2>
-    <p>Created: {{ user.date_joined }}</p>  {# TODO: Improve formatting of date of account creation #}
+<h2>{{ selected_user.username }}</h2>
+    <p>Created: {{ selected_user.date_joined }}</p>  {# TODO: Improve formatting of date of account creation #}
     <p>Post count: {{ user_info.post_count }}</p>
-    <p>Random Post: {{ user_info.random_post }}</p>
+    <p>XP: {{ user_info.xp }}</p>
+    <p>Posts available: {{ user_info.posts_available }}</p> {# TODO: Remove and only list in logged-in users profile #}
+    <p>Random Post: {{ user_info.random_post }}</p> {# TODO: Remove and only list on logged-in users profile #}
 {% endblock %}

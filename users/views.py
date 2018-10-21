@@ -15,7 +15,7 @@ def index(request):
 def profile(request, username):
     current_user = get_object_or_404(User, username=username)
     user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
-    return render(request, 'profile.html', {'user': current_user, 'user_info': user_info})
+    return render(request, 'profile.html', {'selected_user': current_user, 'user_info': user_info})
 
 
 def signup(request):
