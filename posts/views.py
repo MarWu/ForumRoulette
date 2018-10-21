@@ -15,6 +15,16 @@ def not_admin_check(user):
     return not user.username == 'admin'
 
 
+# def can_comment_check(user, post_id):
+#     current_user = user.username
+#     user_info = get_object_or_404(UserInfo, user_reference=current_user.username)
+#     current_post = get_object_or_404(Post, pk=post_id)
+#     if user_info.random_post == current_post:
+#         return True
+#     else:
+#         return False
+
+
 def index(request):
     latest_posts_list = Post.objects.order_by('-pub_date')[:30]
     context = {
@@ -64,22 +74,28 @@ def vote(request, post_id):
     return redirect('posts:detail', current_post.id)
 
 
+@login_required
+# @user_passes_test(can_comment_check(post_id), login_url='YOU_CANT_COMMENT_ON_THIS_POST')
 def create_comment(request, post_id):  # Create permissions
     current_post = get_object_or_404(Post, pk=post_id)
-    if request.method == 'POST':
-        form = CreateCommentForm(request.POST)
-        if form.is_valid():
-            current_user = request.user
-            user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
-            comment = Comment(post=current_post, creator=current_user, comment_text=form.cleaned_data['comment_text'],
-                              pub_date=timezone.now())
-            comment.save()
-            user_info.random_post = None
-            user_info.save()
-            return redirect('posts:detail', current_post.id)
+    current_user = request.user
+    user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
+    if user_info.random_post == current_post:
+        if request.method == 'POST':
+            form = CreateCommentForm(request.POST)
+            if form.is_valid():
+                comment = Comment(post=current_post, creator=current_user,
+                                  comment_text=form.cleaned_data['comment_text'],
+                                  pub_date=timezone.now())
+                comment.save()
+                user_info.random_post = None
+                user_info.save()
+                return redirect('posts:detail', current_post.id)
+        else:
+            form = CreateCommentForm()
+        return render(request, 'createComment.html', {'form': form, 'post': current_post})
     else:
-        form = CreateCommentForm()
-    return render(request, 'createComment.html', {'form': form, 'post': current_post})
+        return HttpResponse("You are not allowed to comment on this post.")  # TODO: Proper ERROR page!
 
 
 def random_comment(request):
