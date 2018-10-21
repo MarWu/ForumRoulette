@@ -9,8 +9,15 @@
     <!-- Add additional CSS in static file -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
 </head>
 <body>
+<header>
+    <a href="#" class="header-item left">irgendein Header</a>
+</header>
+
+
+<main>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
@@ -36,8 +43,14 @@
                 </ul>
             {% endblock %}
         </div>
-        <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+
+        <div class="col-sm-10 ">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
 </div>
+
+</main>
 </body>
 </html>

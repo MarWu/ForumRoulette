@@ -2,11 +2,34 @@
 
 {% block content %}
 {% if latest_posts_list %}
-    <ul>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <ul id="posts">
         {% for post in latest_posts_list %}
-        <li><a href="{% url 'posts:detail' post.id %}">{{ post.post_title }}</a></li>
+        <li id="post_content">
+
+            <div class="voting-section">
+                <div class="glyphicon glyphicon-arrow-up like"></div>
+                <div class="score dislikes hide">7193</div> <!-- herausfinden wo votes gespeichert werden -->
+                <div class="score unvoted hide">7194</div><!-- herausfinden wo votes gespeichert werden -->
+                <div class="score likes">18</div> <!-- difference berechnen -->
+                <div class="glyphicon glyphicon-arrow-down dislike"></div>
+            </div>
+
+            <div>
+                <h3>{{ post.post_title }}</h3>
+                <a href="{% url 'posts:detail' post.id %}">{{ post.post_text }}</a>
+                <a href='#'>{{ post.creator }}</a>
+            </div>
+        </li>
         {% endfor %}
     </ul>
+
+    </div>
+
+
 {% else %}
     <p>No posts are available.</p>
 {% endif %}

@@ -1,9 +1,97 @@
+
+
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
     list-style: none;
 }
 
-li {
-    color: red;
+
+li .post {
+    display: flex;
+    padding: 10px;
+    overflow: auto;
+    list-style: none;
+
 }
+
+li:hover {
+
+  background: #eee;
+  cursor: pointer;
+}
+
+.radio-left input[type=radio]{
+flex-direction: column;
+}
+
+
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+    flex-direction: row;
+}
+
+a {
+    display: block;
+    flex-direction: row;
+}
+#posts {
+    background-color:#eeeeee;
+    display:inline;
+}
+#radio{
+    display:flex;
+    flex-direction: column;
+}
+#post_content {
+    display: flex;
+    list-style-type:none;
+}
+
+
+.voting-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem;
+    padding: 0;
+}
+    .like {
+      display: block;
+      cursor: pointer;
+      color: grey;
+
+    }
+    .like:hover{
+        color:green;
+    }
+
+    .dislike {
+      display: block;
+      cursor: pointer;
+      color: gray;
+    }
+      .dislike:hover {
+        color: red;
+      }
+
+
+    .score {
+      font-size: 14px;
+
+    }
+
+
+  .glyphicon {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .order {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 22px;
+    vertical-align: top;
+    padding: 0;
+  }
