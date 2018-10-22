@@ -33,6 +33,20 @@ def can_post_check(user):
 #         return False
 
 
+def has_already_voted(current_post, current_user):
+    if current_post.up_votes_list.filter(username=current_user.username).exists():
+        return 1
+    else:
+        return 0
+
+
+def has_already_down_voted(current_post, current_user):
+    if current_post.down_votes_list.filter(username=current_user.username).exists():
+        return 1
+    else:
+        return 0
+
+
 def index(request):
     latest_posts_list = Post.objects.order_by('-pub_date')[:30]
     context = {
@@ -48,17 +62,22 @@ def post(request, post_id):
 def detail(request, post_id):
     current_post = get_object_or_404(Post, pk=post_id)
     current_user = request.user
-    if current_post.up_votes_list.filter(username=current_user.username).exists():
+    if current_post.up_votes_list.filter(username=current_user.username).exists():  # TODO: Replace with def. functions
         has_voted = 1
     else:
         has_voted = 0
-    return render(request, 'detail.html', {'post': current_post, 'has_voted': has_voted})
+    if current_post.down_votes_list.filter(username=current_user.username).exists():
+        has_down_voted = 1
+    else:
+        has_down_voted = 0
+    return render(request, 'detail.html',
+                  {'post': current_post, 'has_voted': has_voted, 'has_down_voted': has_down_voted})
 
 
 @login_required
 @user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')  # TODO: Improve forwarding
 @user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
-def create_post(request):   # TODO: Restrict post-creation according to XP-Progress
+def create_post(request):  # TODO: Restrict post-creation according to XP-Progress
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
@@ -76,15 +95,33 @@ def create_post(request):   # TODO: Restrict post-creation according to XP-Progr
 
 
 @login_required
-def vote(request, post_id):
-    current_post = get_object_or_404(Post, pk=post_id)
+def vote(request, post_id, is_down_vote=0):
+    current_post = get_object_or_404(Post, pk=post_id)  # TODO: Check for each vote if opposing vote has been placed
     current_user = request.user
-    current_post.up_votes_list.add(current_user)
     post_creator = get_object_or_404(SystemUser, id=current_post.creator.id)
     creator_info = get_object_or_404(UserInfo, user_reference=post_creator.id)
-    creator_info.xp += 5
+    if not is_down_vote:
+        if not has_already_voted(current_post, current_user):   # TODO: Don't allow post-tokens below 0
+            current_post.up_votes_list.add(current_user)
+            creator_info.xp += 5
+        else:
+            current_post.up_votes_list.remove(current_user)
+            creator_info.xp -= 5
+    else:
+        if not has_already_down_voted(current_post, current_user):
+            current_post.down_votes_list.add(current_user)
+            creator_info.xp -= 5
+        else:
+            current_post.down_votes_list.remove(current_user)
+            creator_info.xp += 5
     creator_info.save()
     return redirect('posts:detail', current_post.id)
+
+
+@login_required
+def down_vote(request, post_id):
+    is_down_vote = 1
+    return redirect('posts:vote', post_id, is_down_vote)
 
 
 @login_required

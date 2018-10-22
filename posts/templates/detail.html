@@ -7,22 +7,27 @@
 
     {% for userinfo in user.userinfo_set.all %}
         {% if userinfo.random_post == post %}
-        <a href="{% url 'posts:comment' post.id %}">Comment</a>
+            <a href="{% url 'posts:comment' post.id %}">Comment</a>
         {% endif %}
     {% endfor %}
 
     <p>Posted: {{ post.time_since_published }}</p>  {# TODO: Improve formatting of time since published #}
     <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
     <p>Upvotes: {{ post.vote_count }}
-
+        <a href="{% url 'posts:vote' post.id %}">+</a>
         {% if has_voted == 1 %}
             You have already voted
-        {% else %}
-            <a href="{% url 'posts:vote' post.id %}">+</a>
         {% endif %}
 
     </p>
-{#    <p>Downvotes: {{ post.down_votes }}</p>#}
+    {#    <p>Downvotes: {{ post.down_votes }}</p>#}
+    <p>Downvotes: {{ post.down_vote_count }}
+        <a href="{% url 'posts:down_vote' post.id %}">-</a>
+        {% if has_down_voted == 1 %}
+            You have already voted
+        {% endif %}
+
+    </p>
     <hr>
     <p>{{ post.post_text }}</p>
     <hr>
