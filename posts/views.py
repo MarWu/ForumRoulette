@@ -77,7 +77,7 @@ def detail(request, post_id):
 @login_required
 @user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')  # TODO: Improve forwarding
 @user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
-def create_post(request):  # TODO: Restrict post-creation according to XP-Progress
+def create_post(request):
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
@@ -96,19 +96,27 @@ def create_post(request):  # TODO: Restrict post-creation according to XP-Progre
 
 @login_required
 def vote(request, post_id, is_down_vote=0):
-    current_post = get_object_or_404(Post, pk=post_id)  # TODO: Check for each vote if opposing vote has been placed
+    current_post = get_object_or_404(Post, pk=post_id)
     current_user = request.user
     post_creator = get_object_or_404(SystemUser, id=current_post.creator.id)
     creator_info = get_object_or_404(UserInfo, user_reference=post_creator.id)
+    has_already_voted_check = has_already_voted(current_post, current_user)
+    has_already_down_voted_check = has_already_down_voted(current_post, current_user)
     if not is_down_vote:
-        if not has_already_voted(current_post, current_user):   # TODO: Don't allow post-tokens below 0
+        if not has_already_voted_check:
+            if has_already_down_voted_check:
+                current_post.down_votes_list.remove(current_user)
+                creator_info.xp += 5
             current_post.up_votes_list.add(current_user)
             creator_info.xp += 5
         else:
             current_post.up_votes_list.remove(current_user)
             creator_info.xp -= 5
     else:
-        if not has_already_down_voted(current_post, current_user):
+        if not has_already_down_voted_check:
+            if has_already_voted_check:
+                current_post.up_votes_list.remove(current_user)
+                creator_info.xp -= 5
             current_post.down_votes_list.add(current_user)
             creator_info.xp -= 5
         else:
@@ -149,7 +157,7 @@ def create_comment(request, post_id):  # Create permissions
         return HttpResponse("You are not allowed to comment on this post.")  # TODO: Proper ERROR page!
 
 
-def random_comment(request):
+def random_comment(request):    # TODO: Possibly xp multiplier based on dice-roll
     current_user = request.user
     user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
     if user_info.random_post is None:
