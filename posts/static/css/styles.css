@@ -1,24 +1,17 @@
-* {
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 }
 
-html {
-    width: 100%;
-    height: 100%;
-    font-size: 62.5%;
-
-}
-body {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 header {
     background-color: white;
-    height: 100%;
+    height: 50px;
     width: 100%;
     box-sizing: border-box;
     max-height: 5rem;
@@ -27,7 +20,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #8c1e31;
+    border-bottom: 2px solid black;
 
 }
 
@@ -65,44 +58,118 @@ header .header-item:hover {
 }
 
 main {
+    height: 100%;
     display: flex;
+    flex:1;
     flex-direction: row;
-    background-color: #cccccc;
-
-    flex: 4;
-
     font-family: 'Roboto', sans-serif;
 }
 
 main .content {
-    flex: 4;
+    flex: 1;
     display: flex;
-
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: lightgray;
     flex-direction: column;
 
-    background-color: white;
+
 
 }
 
 main aside {
-
-    flex: 1;
-    max-width: 19rem;
+    width: 250px;
     justify-content: center;
-    background-color: red;
+    background-color: white;
+
+}
+
+/* The side navigation menu */
+.sidenav {
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    bottom: 0;
+    left: 0;
+    background-color: red; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s
 }
 
 
 
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
 
+
+
+/* Style the links inside the navigation bar */
+aside .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+aside a svg{
+  transition:all .5s ease;
+}
+aside   a:hover{
+    #transform:rotate(180deg);
+  }
+
+
+aside #ico{
+  display: none;
+}
+
+aside .menu {
+    background: white;
+    display: none;
+    padding: 5px;
+    width: 320px;
+@include border-radius(5 px);
+
+    #transition: all 0.5s ease;
+}
+
+
+aside   a:hover{
+      background: lightgray;
+    }
 
 
   footer {
     background-color: red;
     height: 100%;
     max-height: 5rem;
-
-    display: flex;
     align-items: center;
     justify-content: center;
 }
