@@ -3,22 +3,22 @@ li .post {
     display: flex;
     list-style: none;
 }
+
 #post_content {
-   background-color: white;
+    background-color: white;
     margin: 2rem 0 0 0;
     display: flex;
-    list-style-type:none;
+    list-style-type: none;
     border-radius: 0.5rem;
-    border: 1px solid lightgrey ;
+    border: 1px solid lightgrey;
 
 }
 
 #post_content:hover {
 
-   border: 1px solid black ;
-  cursor: pointer;
+    border: 1px solid black;
+    cursor: pointer;
 }
-
 
 .voting-section {
     display: flex;
@@ -27,54 +27,55 @@ li .post {
     margin: 2rem;
     padding: 0;
 }
-    .like {
-        font-size: 2.5rem;
-      display: block;
-      cursor: pointer;
-      color: grey;
 
-    }
-    .like:hover{
-        color:green;
-    }
+.like {
+    font-size: 2.5rem;
+    display: block;
+    cursor: pointer;
+    color: grey;
 
-    .dislike {
-        font-size: 2.5rem;
-      display: block;
-      cursor: pointer;
-      color: gray;
-    }
-      .dislike:hover {
-        color: red;
-      }
+}
 
+.like:hover {
+    color: green;
+}
 
-    .score {
-      font-size: 2rem;
+.dislike {
+    font-size: 2.5rem;
+    display: block;
+    cursor: pointer;
+    color: gray;
+}
 
-    }
-    .hide{
-        display: none;
-    }
+.dislike:hover {
+    color: red;
+}
 
+.score {
+    font-size: 2rem;
 
-  .glyphicon {
+}
+
+.hide {
+    display: none;
+}
+
+.glyphicon {
     margin: 0;
     padding: 0;
     font-size: 14px;
-  }
+}
 
-  .order {
+.order {
     display: inline-block;
     font-size: 14px;
     margin-top: 22px;
     vertical-align: top;
     padding: 0;
-  }
-
+}
 
 h3 {
-  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
     flex-direction: row;
 }
 
@@ -86,13 +87,14 @@ h3 {
     color: black;
     text-decoration: none;
 }
-.information{
+
+.information {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.information a{
+.information a {
     display: inline-block;
     align-self: flex-end;
     vertical-align: bottom;
