@@ -8,11 +8,19 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Post, Comment
 from .forms import CreatePostForm, CreateCommentForm
-from users.models import UserInfo
+from users.models import UserInfo, SystemUser
 
 
 def not_admin_check(user):
     return not user.username == 'admin'
+
+
+def can_post_check(user):
+    user_info = get_object_or_404(UserInfo, pk=user.id)
+    if user_info.posts_available() >= 1:
+        return True
+    else:
+        return False
 
 
 # def can_comment_check(user, post_id):
@@ -23,6 +31,20 @@ def not_admin_check(user):
 #         return True
 #     else:
 #         return False
+
+
+def has_already_voted(current_post, current_user):
+    if current_post.up_votes_list.filter(username=current_user.username).exists():
+        return 1
+    else:
+        return 0
+
+
+def has_already_down_voted(current_post, current_user):
+    if current_post.down_votes_list.filter(username=current_user.username).exists():
+        return 1
+    else:
+        return 0
 
 
 def index(request):
@@ -40,16 +62,22 @@ def post(request, post_id):
 def detail(request, post_id):
     current_post = get_object_or_404(Post, pk=post_id)
     current_user = request.user
-    if current_post.up_votes_list.filter(username=current_user.username).exists():
+    if current_post.up_votes_list.filter(username=current_user.username).exists():  # TODO: Replace with def. functions
         has_voted = 1
     else:
         has_voted = 0
-    return render(request, 'detail.html', {'post': current_post, 'has_voted': has_voted})
+    if current_post.down_votes_list.filter(username=current_user.username).exists():
+        has_down_voted = 1
+    else:
+        has_down_voted = 0
+    return render(request, 'detail.html',
+                  {'post': current_post, 'has_voted': has_voted, 'has_down_voted': has_down_voted})
 
 
 @login_required
-@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')
-def create_post(request):
+@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')  # TODO: Improve forwarding
+@user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
+def create_post(request):  # TODO: Restrict post-creation according to XP-Progress
     if request.method == 'POST':
         form = CreatePostForm(request.POST)
         if form.is_valid():
@@ -57,9 +85,9 @@ def create_post(request):
             p = Post(creator=current_user, post_title=form.cleaned_data['post_title'],
                      post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
             p.save()
-            post_count = get_object_or_404(UserInfo, user_reference=current_user)
-            post_count.post_count += 1
-            post_count.save()
+            user_info = get_object_or_404(UserInfo, user_reference=current_user)
+            user_info.post_count += 1
+            user_info.save()
             return redirect('posts:detail', p.id)
     else:
         form = CreatePostForm()
@@ -67,11 +95,33 @@ def create_post(request):
 
 
 @login_required
-def vote(request, post_id):
-    current_post = get_object_or_404(Post, pk=post_id)
+def vote(request, post_id, is_down_vote=0):
+    current_post = get_object_or_404(Post, pk=post_id)  # TODO: Check for each vote if opposing vote has been placed
     current_user = request.user
-    current_post.up_votes_list.add(current_user)
+    post_creator = get_object_or_404(SystemUser, id=current_post.creator.id)
+    creator_info = get_object_or_404(UserInfo, user_reference=post_creator.id)
+    if not is_down_vote:
+        if not has_already_voted(current_post, current_user):   # TODO: Don't allow post-tokens below 0
+            current_post.up_votes_list.add(current_user)
+            creator_info.xp += 5
+        else:
+            current_post.up_votes_list.remove(current_user)
+            creator_info.xp -= 5
+    else:
+        if not has_already_down_voted(current_post, current_user):
+            current_post.down_votes_list.add(current_user)
+            creator_info.xp -= 5
+        else:
+            current_post.down_votes_list.remove(current_user)
+            creator_info.xp += 5
+    creator_info.save()
     return redirect('posts:detail', current_post.id)
+
+
+@login_required
+def down_vote(request, post_id):
+    is_down_vote = 1
+    return redirect('posts:vote', post_id, is_down_vote)
 
 
 @login_required
@@ -89,6 +139,7 @@ def create_comment(request, post_id):  # Create permissions
                                   pub_date=timezone.now())
                 comment.save()
                 user_info.random_post = None
+                user_info.xp += 20
                 user_info.save()
                 return redirect('posts:detail', current_post.id)
         else:
