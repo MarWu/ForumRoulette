@@ -37,10 +37,11 @@ header .header-item {
     font-family: 'Roboto', sans-serif;
     color: black;
 }
+
 header .left {
     justify-content: center;
 
-    border-right: 1px solid #8c1e31;
+    border-right: 1px solid black;
 }
 
 header .center {
@@ -50,7 +51,7 @@ header .center {
 
 header .right {
     justify-content: center;
-    border-left: 1px solid #8c1e31;
+    border-left: 1px solid black;
 }
 
 header .header-item:hover {
@@ -60,26 +61,20 @@ header .header-item:hover {
 main {
     height: 100%;
     display: flex;
-    flex:1;
-    flex-direction: row;
-    font-family: 'Roboto', sans-serif;
+    flex: 1;
+    overflow: hidden;
 }
 
 main .content {
     flex: 1;
     display: flex;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background-color: lightgray;
     flex-direction: column;
-
-
+    overflow-y: auto;
 
 }
 
 main aside {
     width: 250px;
-    justify-content: center;
     background-color: white;
 
 }
@@ -87,11 +82,11 @@ main aside {
 /* The side navigation menu */
 .sidenav {
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 1; /* Stay on top */
-    bottom: 0;
+    background-color: white;
+    Top: 50px;
     left: 0;
-    background-color: red; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -101,13 +96,12 @@ main aside {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     color: black;
     display: block;
     transition: 0.3s
+
 }
-
-
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
@@ -118,8 +112,6 @@ main aside {
     margin-left: 50px;
 }
 
-
-
 /* Style the links inside the navigation bar */
 aside .topnav a {
     float: left;
@@ -127,27 +119,34 @@ aside .topnav a {
     text-align: center;
     padding: 1.5rem 2rem;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1rem;
 }
-
-
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
 
-aside a svg{
-  transition:all .5s ease;
+aside a svg {
+    transition: all .5s ease;
 }
-aside   a:hover{
-    #transform:rotate(180deg);
-  }
 
+aside a:hover {
+    #transform: rotate(180deg);
+}
 
-aside #ico{
-  display: none;
+aside ul {
+    list-style: none;
+}
+
+aside #ico {
+    display: none;
 }
 
 aside .menu {
@@ -160,13 +159,12 @@ aside .menu {
     #transition: all 0.5s ease;
 }
 
+aside a:hover {
+    background: lightgray;
+    border-radius: 2.5rem;
+}
 
-aside   a:hover{
-      background: lightgray;
-    }
-
-
-  footer {
+main footer {
     background-color: red;
     height: 100%;
     max-height: 5rem;
