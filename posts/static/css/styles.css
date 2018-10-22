@@ -1,21 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     width: 100%;
     height: 100%;
-    font-size: 62.5%; /* default wert, kann angepasst werden wenn "rem" benutzt wird*/
+    font-size: 62.5%;
 
 }
-
 body {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
 }
 
 header {
@@ -25,6 +23,7 @@ header {
     box-sizing: border-box;
     max-height: 5rem;
     padding: 0 4rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +38,6 @@ header .header-item {
     font-size: 3rem;
 
     display: flex;
-
     align-items: center;
 
     text-decoration: none;
@@ -66,101 +64,36 @@ header .header-item:hover {
     background-color: grey;
 }
 
-li .post {
+main {
     display: flex;
-    padding: 10px;
-    overflow: auto;
-    list-style: none;
-
-
-}
-
-#post_content:hover {
-
-   border: 1px solid black ;
-  cursor: pointer;
-}
-
-.radio-left input[type=radio]{
-flex-direction: column;
-}
-
-
-h3 {
-  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
     flex-direction: row;
+    background-color: #cccccc;
+
+    flex: 4;
+
+    font-family: 'Roboto', sans-serif;
 }
 
-#posts a {
-    display: block;
-    flex-direction: row;
-    color: black;
-    text-decoration: none;
-}
-.information{
+main .content {
+    flex: 4;
     display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
 
-}
-
-#post_content {
-   background-color: white;
-    margin: 2rem 2rem 2rem 2rem;
-    display: flex;
-    list-style-type:none;
-    border: 1px solid lightgrey ;
-
-}
-
-
-.voting-section {
-    display: flex;
     flex-direction: column;
-    text-align: center;
-    margin: 2rem;
-    padding: 0;
+
+    background-color: white;
+
 }
-    .like {
-      display: block;
-      cursor: pointer;
-      color: grey;
 
-    }
-    .like:hover{
-        color:green;
-    }
+main aside {
 
-    .dislike {
-      display: block;
-      cursor: pointer;
-      color: gray;
-    }
-      .dislike:hover {
-        color: red;
-      }
+    flex: 1;
+    max-width: 19rem;
+    justify-content: center;
+    background-color: red;
+}
 
 
-    .score {
-      font-size: 14px;
 
-    }
-
-
-  .glyphicon {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-  }
-
-  .order {
-    display: inline-block;
-    font-size: 14px;
-    margin-top: 22px;
-    vertical-align: top;
-    padding: 0;
-  }
 
 
 

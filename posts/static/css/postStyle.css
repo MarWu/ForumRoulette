@@ -1,0 +1,112 @@
+
+li .post {
+    display: flex;
+    padding: 10px;
+    overflow: auto;
+    list-style: none;
+
+
+}
+#post_content {
+   background-color: white;
+    margin: 2rem 2rem 0rem 2rem;
+    display: flex;
+    list-style-type:none;
+    border: 1px solid lightgrey ;
+
+}
+
+#post_content:hover {
+
+   border: 1px solid black ;
+  cursor: pointer;
+}
+
+
+.voting-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem;
+    padding: 0;
+}
+    .like {
+        font-size: 2.5rem;
+      display: block;
+      cursor: pointer;
+      color: grey;
+
+    }
+    .like:hover{
+        color:green;
+    }
+
+    .dislike {
+        font-size: 2.5rem;
+      display: block;
+      cursor: pointer;
+      color: gray;
+    }
+      .dislike:hover {
+        color: red;
+      }
+
+
+    .score {
+      font-size: 2rem;
+
+    }
+    .hide{
+        display: none;
+    }
+
+
+  .glyphicon {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .order {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 22px;
+    vertical-align: top;
+    padding: 0;
+  }
+
+
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+    flex-direction: row;
+}
+
+.link a {
+    font-size: 2rem;
+    margin: 1rem 0rem 0rem 0rem;
+    display: block;
+
+    color: black;
+    text-decoration: none;
+}
+.information{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.information a{
+    display: inline-block;
+    align-self: flex-end;
+    vertical-align: bottom;
+    font-size: 1rem;
+
+}
+
+.information a:hover {
+    background-color: lightgray;
+}
+
+
+

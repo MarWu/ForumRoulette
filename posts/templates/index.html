@@ -1,28 +1,30 @@
 {% extends "base_generic.html" %}
-
+{# TODO Get Voting Working, comments count, design#}
 {% block content %}
 {% if latest_posts_list %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    {% load static %}
 
+    <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
 
     <ul id="posts">
         {% for post in latest_posts_list %}
         <li id="post_content">
 
             <div class="voting-section">
-                <div class="glyphicon glyphicon-arrow-up like"></div>
+                <div class="fas fa-angle-up like"></div>
                 <div class="score dislikes hide">7193</div> <!-- herausfinden wo votes gespeichert werden -->
                 <div class="score unvoted hide">7194</div><!-- herausfinden wo votes gespeichert werden -->
                 <div class="score likes">18</div> <!-- difference berechnen -->
-                <div class="glyphicon glyphicon-arrow-down dislike"></div>
+                <div class="fas fa-angle-down  dislike"></div>
             </div>
 
             <div class="link">
                 <h3>{{ post.post_title }}</h3>
-                <a href="{% url 'posts:detail' post.id %}">{{ post.post_text }}</a>
+                <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
                 <div class="information">
                     <a href='#'>Posted by {{ post.creator }}</a>
-                    <a class="glyphicon glyphicon-comment"> comments</a>
+                    <a class="fas fa-comment-alt""> comments</a>
                 </div>
             </div>
         </li>
