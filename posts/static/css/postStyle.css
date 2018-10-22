@@ -1,17 +1,14 @@
 
 li .post {
     display: flex;
-    padding: 10px;
-    overflow: auto;
     list-style: none;
-
-
 }
 #post_content {
    background-color: white;
-    margin: 2rem 2rem 0rem 2rem;
+    margin: 2rem 0 0 0;
     display: flex;
     list-style-type:none;
+    border-radius: 0.5rem;
     border: 1px solid lightgrey ;
 
 }
@@ -91,7 +88,6 @@ h3 {
 }
 .information{
     display: flex;
-    flex: 1;
     flex-direction: row;
     justify-content: space-between;
 }
