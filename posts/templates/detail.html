@@ -13,7 +13,7 @@
 
     <p>Posted: {{ post.time_since_published }}</p>  {# TODO: Improve formatting of time since published #}
     <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
-    <p>Upvotes: {{ post.vote_count }}
+    <p>Upvotes: {{ post.up_vote_count }}
         <a href="{% url 'posts:vote' post.id %}">+</a>
         {% if has_voted == 1 %}
             You have already voted
@@ -35,6 +35,22 @@
     {% for comment in post.comment_set.all %}
         <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
         <p>Posted: {{ comment.pub_date }}</p>   {# TODO: Improve formatting of time since published #}
+        <p>Upvotes: {{ comment.up_vote_count }}
+            <a href="{% url 'posts:vote_comment' comment.id 0 %}">+</a>
+            {% for voter in comment.up_votes_list.all %}
+                {% if voter.username == user.username %}
+                    You have already voted
+                {% endif %}
+            {% endfor %}
+        </p>
+        <p>Downvotes: {{ comment.down_vote_count }}
+            <a href="{% url 'posts:vote_comment' comment.id 1 %}">-</a>
+            {% for voter in comment.down_votes_list.all %}
+                {% if voter.username == user.username %}
+                    You have already voted
+                {% endif %}
+            {% endfor %}
+        </p>
         <p>{{ comment.comment_text }}</p>
         <hr>
     {% endfor %}
