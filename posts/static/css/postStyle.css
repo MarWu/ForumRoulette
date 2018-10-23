@@ -29,7 +29,7 @@ li .post {
 }
 
 .like {
-    font-size: 2.5rem;
+    font-size: 3rem;
     display: block;
     cursor: pointer;
     color: grey;
@@ -41,14 +41,14 @@ li .post {
 }
 
 .dislike {
-    font-size: 2.5rem;
+    font-size: 3rem;
     display: block;
     cursor: pointer;
     color: gray;
 }
 
 .dislike:hover {
-    color: red;
+    color: orange;
 }
 
 .score {

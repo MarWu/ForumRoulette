@@ -18,7 +18,7 @@
 
 <header>
     <div class="header-item left">
-        <img src="{% static 'Images/dice.gif'%}" alt="">
+        <img src="{% static 'Images/dice.gif'%}" width="100" alt="">
        <a href="#" class="header-item">Random Roulette </a>
     </div>
     <a href="#" class="header-item center">irgendein shit</a>
@@ -46,13 +46,13 @@
         <div id="sideNavigation" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
-                <li><a href="{% url 'posts:index' %}" class="fas fa-home">Home</a></li>
-                <li><a href="{% url 'posts:index' %}" class="fab fa-hotjar">Popular Posts</a></li>
-                <li><a href="{% url 'posts:create' %}" class="far fa-paper-plane">Create Post</a></li>
+                <li><a href="{% url 'posts:index' %}" class="fas fa-home">  Home</a></li>
+                <li><a href="{% url 'posts:index' %}" class="fab fa-hotjar"> Popular Posts</a></li>
+                <li><a href="{% url 'posts:create' %}" class="far fa-paper-plane"> Create Post</a></li>
             </ul>
             <ul>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'posts:random' %}">Random Roulette</a>
+                    <a href="{% url 'posts:random' %}" class="fas fa-dice"> Random Roulette</a>
                     <hr>
                     <li><a href="{% url 'users:profile' user.username %}">User: {{ user.username }}</a></li>
                     <li><a href="{% url 'logout' %}?next={{ request.path }}">Logout</a></li>

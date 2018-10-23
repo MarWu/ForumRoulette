@@ -11,16 +11,16 @@ html, body {
 
 header {
     background-color: white;
+    margin-bottom: 8px;
     height: 50px;
     width: 100%;
     box-sizing: border-box;
     max-height: 5rem;
     padding: 0 4rem;
-
+    box-shadow: 5px 5px 5px lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid black;
 
 }
 
@@ -37,11 +37,7 @@ header .header-item {
     color: black;
 }
 
-header a{
-    padding-left: 50px;
-}
-
-header .left:hover, header .center:hover{
+ header .center:hover{
 background-color: lightgray;
 
     border-radius: 2.5rem;
@@ -80,9 +76,6 @@ background-color: lightgray;
   position:relative;
   width:100%;
 }
-header .header-item:hover {
-  /*  background-color: grey;*/
-}
 
 main {
     height: 100%;
@@ -93,6 +86,7 @@ main {
 
 main .content {
     flex: 1;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -111,7 +105,7 @@ main aside {
     position: absolute; /* Stay in place */
     z-index: 1; /* Stay on top */
     background-color: white;
-    Top: 50px;
+
     left: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
@@ -120,9 +114,9 @@ main aside {
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 40px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     color: black;
     display: block;
     transition: 0.3s
@@ -192,8 +186,7 @@ aside a:hover {
 
 main footer {
     background-color: red;
-    height: 100%;
-    max-height: 5rem;
+
     align-items: center;
     justify-content: center;
 }
