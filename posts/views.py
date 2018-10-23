@@ -76,14 +76,8 @@ def post(request, post_id):
 def detail(request, post_id):
     current_post = get_object_or_404(Post, pk=post_id)
     current_user = request.user
-    if current_post.up_votes_list.filter(username=current_user.username).exists():  # TODO: Replace with short functions
-        has_voted = 1
-    else:
-        has_voted = 0
-    if current_post.down_votes_list.filter(username=current_user.username).exists():
-        has_down_voted = 1
-    else:
-        has_down_voted = 0
+    has_voted = has_already_voted(current_post, current_user)
+    has_down_voted = has_already_down_voted(current_post, current_user)
     return render(request, 'detail.html',
                   {'post': current_post, 'has_voted': has_voted, 'has_down_voted': has_down_voted})
 
