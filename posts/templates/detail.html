@@ -38,7 +38,7 @@
     <div class="link">
         <h3>{{ post.post_title }}</h3>
                 <p>{{ post.post_text }}</p>
-        <p>Posted: {{ post.time_since_published }}</p> {# TODO: Improve formatting of time since published #}
+        <p>Posted: {{ post.pub_date_printable }}</p>
         <a href='#'>Posted by {{ post.creator }}</a>
 
     </div>
@@ -48,7 +48,7 @@
     <div class="commentblock">
         {% for comment in post.comment_set.all %}
             <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
-            <p>Posted: {{ comment.pub_date }}</p>   {# TODO: Improve formatting of time since published #}
+            <p>Posted: {{ comment.pub_date_printable }}</p>
             <p>Upvotes: {{ comment.up_vote_count }}
                 <a href="{% url 'posts:vote_comment' comment.id 0 %}">+</a>
                 {% for voter in comment.up_votes_list.all %}

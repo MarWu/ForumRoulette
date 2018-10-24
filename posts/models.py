@@ -29,6 +29,22 @@ class Post(models.Model):
     def down_vote_count(self):
         return self.down_votes_list.count()
 
+    def pub_date_printable(self):
+        if timezone.now().year - self.pub_date.year > 0:
+            return "over " + str(timezone.now().year - self.pub_date.year) + " year(s) ago"
+        if timezone.now().month - self.pub_date.month > 0:
+            return "over " + str(timezone.now().month - self.pub_date.month) + " month(s) ago"
+        if timezone.now().day - self.pub_date.day > 6:
+            return str(int(timezone.now().day - self.pub_date.day / 7)) + " week(s) ago"
+        if timezone.now().day - self.pub_date.day > 0:
+            return str(timezone.now().day - self.pub_date.day) + " day(s) ago"
+        if timezone.now().hour - self.pub_date.hour > 0:
+            return str(timezone.now().hour - self.pub_date.hour) + " hour(s) ago"
+        if timezone.now().minute - self.pub_date.minute > 0:
+            return str(timezone.now().minute - self.pub_date.minute) + " minute(s) ago"
+        else:
+            return "just now"
+
     # def random(self):
     #     all_posts = self.id.
     #     return random.choice(all_posts)
@@ -52,3 +68,19 @@ class Comment(models.Model):
 
     def down_vote_count(self):
         return self.down_votes_list.count()
+
+    def pub_date_printable(self):
+        if timezone.now().year - self.pub_date.year > 0:
+            return "over " + str(timezone.now().year - self.pub_date.year) + " year(s) ago"
+        if timezone.now().month - self.pub_date.month > 0:
+            return "over " + str(timezone.now().month - self.pub_date.month) + " month(s) ago"
+        if timezone.now().day - self.pub_date.day > 6:
+            return str(int(timezone.now().day - self.pub_date.day / 7)) + " week(s) ago"
+        if timezone.now().day - self.pub_date.day > 0:
+            return str(timezone.now().day - self.pub_date.day) + " day(s) ago"
+        if timezone.now().hour - self.pub_date.hour > 0:
+            return str(timezone.now().hour - self.pub_date.hour) + " hour(s) ago"
+        if timezone.now().minute - self.pub_date.minute > 0:
+            return str(timezone.now().minute - self.pub_date.minute) + " minute(s) ago"
+        else:
+            return "just now"

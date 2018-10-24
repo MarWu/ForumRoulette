@@ -4,7 +4,7 @@
 
 {% block content %}
 <h2>{{ selected_user.username }}</h2>
-    <p>Created: {{ selected_user.date_joined }}</p>  {# TODO: Improve formatting of date of account creation #}
+    <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
     <p>XP: {{ user_info.xp }}</p>
     <p>Posts available: {{ user_info.posts_available }}</p> {# TODO: Remove and only list in logged-in users profile #}
