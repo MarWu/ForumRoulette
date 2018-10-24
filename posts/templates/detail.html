@@ -3,7 +3,12 @@
 {% block title %}<title>{{ post.post_title }}</title>{% endblock %}
 
 {% block content %}
-    <h1>{{ post.post_title }}</h1>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
+
+    <div id="post_content">
+
 
     {% for userinfo in user.userinfo_set.all %}
         {% if userinfo.random_post == post %}
@@ -11,47 +16,58 @@
         {% endif %}
     {% endfor %}
 
-    <p>Posted: {{ post.time_since_published }}</p>  {# TODO: Improve formatting of time since published #}
-    <p>Creator: <a href="{% url 'users:profile' post.creator %}">{{ post.creator }}</a></p>
-    <p>Upvotes: {{ post.up_vote_count }}
-        <a href="{% url 'posts:vote' post.id %}">+</a>
+    <div class="voting-section">
+        <a class="fas fa-angle-up like" href="{% url 'posts:vote' post.id %}" id="like"></a>
         {% if has_voted == 1 %}
-            You have already voted
+            <script>
+                like()
+            </script>
         {% endif %}
-
-    </p>
-    {#    <p>Downvotes: {{ post.down_votes }}</p>#}
-    <p>Downvotes: {{ post.down_vote_count }}
-        <a href="{% url 'posts:down_vote' post.id %}">-</a>
+        <div class="score upvote ">{{ post.up_vote_count }}</div>
+        <div class="score downvote">{{ post.down_vote_count }}</div>
+        <div class="score likes">{{ post.up_vote_count|add:post.down_vote_count }}</div>
+        <!-- difference nur add funktioniert!!berechnen -->
+        <a class="fas fa-angle-down  dislike" href="{% url 'posts:down_vote' post.id %}" id="dislike"></a>
         {% if has_down_voted == 1 %}
-            You have already voted
+            <script>
+                dislike()
+            </script>
         {% endif %}
+    </div>
 
-    </p>
+    <div class="link">
+        <h3>{{ post.post_title }}</h3>
+                <p>{{ post.post_text }}</p>
+        <p>Posted: {{ post.time_since_published }}</p> {# TODO: Improve formatting of time since published #}
+        <a href='#'>Posted by {{ post.creator }}</a>
+
+    </div>
+    </div>
     <hr>
-    <p>{{ post.post_text }}</p>
     <hr>
-    <hr>
-    {% for comment in post.comment_set.all %}
-        <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
-        <p>Posted: {{ comment.pub_date }}</p>   {# TODO: Improve formatting of time since published #}
-        <p>Upvotes: {{ comment.up_vote_count }}
-            <a href="{% url 'posts:vote_comment' comment.id 0 %}">+</a>
-            {% for voter in comment.up_votes_list.all %}
-                {% if voter.username == user.username %}
-                    You have already voted
-                {% endif %}
-            {% endfor %}
-        </p>
-        <p>Downvotes: {{ comment.down_vote_count }}
-            <a href="{% url 'posts:vote_comment' comment.id 1 %}">-</a>
-            {% for voter in comment.down_votes_list.all %}
-                {% if voter.username == user.username %}
-                    You have already voted
-                {% endif %}
-            {% endfor %}
-        </p>
-        <p>{{ comment.comment_text }}</p>
-        <hr>
-    {% endfor %}
+    <div class="commentblock">
+        {% for comment in post.comment_set.all %}
+            <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
+            <p>Posted: {{ comment.pub_date }}</p>   {# TODO: Improve formatting of time since published #}
+            <p>Upvotes: {{ comment.up_vote_count }}
+                <a href="{% url 'posts:vote_comment' comment.id 0 %}">+</a>
+                {% for voter in comment.up_votes_list.all %}
+                    {% if voter.username == user.username %}
+                        You have already voted
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <p>Downvotes: {{ comment.down_vote_count }}
+                <a href="{% url 'posts:vote_comment' comment.id 1 %}">-</a>
+                {% for voter in comment.down_votes_list.all %}
+                    {% if voter.username == user.username %}
+                        You have already voted
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <p>{{ comment.comment_text }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+
 {% endblock %}

@@ -7,3 +7,11 @@ function closeNav() {
     document.getElementById("sideNavigation").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
 }
+
+function like() {
+    document.getElementById("like").style.color="green";
+}
+
+function dislike() {
+    document.getElementById("dislike").style.color="red";
+}

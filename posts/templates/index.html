@@ -2,9 +2,6 @@
 {# TODO Get Voting Working, comments count, design#}
 {% block content %}
     {% if latest_posts_list %}
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-              integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-              crossorigin="anonymous">
         {% load static %}
 
         <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
@@ -22,12 +19,13 @@
                             <div class="fas fa-angle-down  dislike"></div>
                         </div>
 
+
                         <div class="link">
                             <h3>{{ post.post_title }}</h3>
                             <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
                             <div class="information">
                                 <a href='#'>Posted by {{ post.creator }}</a>
-                                <a class="fas fa-comment-alt""> comments</a>
+                                <a class="fas fa-comment-alt"> comments</a>
                             </div>
                         </div>
                     </li>
