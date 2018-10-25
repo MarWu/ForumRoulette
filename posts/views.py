@@ -198,7 +198,7 @@ def create_comment(request, post_id):  # Create permissions
         return HttpResponse("You are not allowed to comment on this post.")  # TODO: Proper ERROR page!
 
 
-def random_comment(request):    # TODO: Possibly xp multiplier based on dice-roll
+def random_comment(request):
     current_user = request.user
     user_info = get_object_or_404(UserInfo, user_reference=current_user.id)
     if user_info.random_post is None:
