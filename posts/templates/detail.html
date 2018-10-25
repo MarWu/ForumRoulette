@@ -25,7 +25,7 @@
         {% endif %}
         <div class="score upvote ">{{ post.up_vote_count }}</div>
         <div class="score downvote">{{ post.down_vote_count }}</div>
-        <div class="score likes">{{ post.up_vote_count|add:post.down_vote_count }}</div>
+        <div class="score likes">{{ post.vote_difference }}</div>
         <!-- difference nur add funktioniert!!berechnen -->
         <a class="fas fa-angle-down  dislike" href="{% url 'posts:down_vote' post.id %}" id="dislike"></a>
         {% if has_down_voted == 1 %}

@@ -45,6 +45,9 @@ class Post(models.Model):
         else:
             return "just now"
 
+    def vote_difference(self):
+            return self.up_vote_count() - self.down_vote_count()
+
     # def random(self):
     #     all_posts = self.id.
     #     return random.choice(all_posts)
