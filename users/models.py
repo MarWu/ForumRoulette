@@ -24,7 +24,7 @@ class UserInfo(models.Model):
         return self.user_reference.username
 
     def posts_available(self):
-        total_posts = int((self.xp / 100) // 1)
+        total_posts = int((self.xp / 100) // 1)  # Gets maximum possible posts from current XP
         posts_available_count = total_posts - self.post_count
         if posts_available_count > 0:
             return posts_available_count

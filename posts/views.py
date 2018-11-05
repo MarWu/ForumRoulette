@@ -17,7 +17,7 @@ def not_admin_check(user):
 
 def can_post_check(user):
     user_info = get_object_or_404(UserInfo, pk=user.id)
-    if user_info.posts_available() >= 1:
+    if user_info.posts_available() <= 1:
         return True
     else:
         return False
@@ -87,7 +87,7 @@ def detail(request, post_id):
 @user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
 def create_post(request):
     if request.method == 'POST':
-        form = CreatePostForm(request.POST)
+        form = CreatePostForm(request.POST, request.FILES)
         if form.is_valid():
             current_user = request.user
             p = Post(creator=current_user, post_title=form.cleaned_data['post_title'],

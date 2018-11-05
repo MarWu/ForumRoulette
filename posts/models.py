@@ -16,6 +16,7 @@ class Post(models.Model):
     # down_votes = models.IntegerField(default=0)
     up_votes_list = models.ManyToManyField(User, related_name='vote_list', blank=True)
     down_votes_list = models.ManyToManyField(User, related_name='down_votes_list', blank=True)
+    post_image = models.ImageField(upload_to='uploads/%Y/%m/%d/', blank=True)
 
     def __str__(self):
         return self.post_title

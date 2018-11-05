@@ -24,7 +24,7 @@
     <a href="#" class="header-item center">irgendein shit</a>
     <div class="header-item right slinput">
         <i class="fa fa-search left-icon"></i>
-        <input type="search" placeholder="Search Random Roulette"/>
+        <input type="search" placeholder="Search Random Roulette"/> {# TODO: Implement search #}
     </div>
 
 </header>
@@ -47,7 +47,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
                 <li><a href="{% url 'posts:index' %}" class="fas fa-home">  Home</a></li>
-                <li><a href="{% url 'posts:index' %}" class="fab fa-hotjar"> Popular Posts</a></li>
+                <li><a href="{% url 'posts:index' %}" class="fab fa-hotjar"> Popular Posts</a></li> {# TODO: Implement sorting by popular #}
                 <li><a href="{% url 'posts:create' %}" class="far fa-paper-plane"> Create Post</a></li>
             </ul>
             <ul>
