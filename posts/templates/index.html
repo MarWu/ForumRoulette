@@ -32,12 +32,38 @@
                 {% endfor %}
             </ul>
         </div>
+        {% elif popular_posts_list %}
+        {% load static %}
 
+        <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
+        <div>
+            <ul id="posts">
+                {% for post in popular_posts_list %}
+                    <li id="post_content">
 
+                        <div class="voting-section">
+                            <div class="fas fa-angle-up like"></div>
+                            <div class="score dislikes hide">7193</div>
+                            <!-- herausfinden wo votes gespeichert werden -->
+                            <div class="score unvoted hide">7194</div><!-- herausfinden wo votes gespeichert werden -->
+                            <div class="score likes">18</div> <!-- difference berechnen -->
+                            <div class="fas fa-angle-down  dislike"></div>
+                        </div>
 
+                        <div class="link">
+                            <h3>{{ post.post_title }}</h3>
+                            <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
+                            <div class="information">
+                                <a href='#'>Posted by {{ post.creator }}</a>
+                                <a class="fas fa-comment-alt"> comments</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% else %}
         <p>No posts are available.</p>
     {% endif %}
-
 
 {% endblock %}
