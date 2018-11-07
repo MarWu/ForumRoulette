@@ -64,7 +64,7 @@ def has_already_down_voted_comment(current_comment, current_user):
 def index(request):
     latest_posts_list = Post.objects.order_by('-pub_date')[:30]     # TODO: Pagination
     context = {
-        'latest_posts_list': latest_posts_list,
+        'post_list': latest_posts_list,
     }
     return render(request, 'index.html', context)
 
@@ -75,7 +75,7 @@ def popular(request):
     popular_posts_list = sorted(posts_list, key=lambda votes: -(votes.up_votes_list.count()))[:30]
     # popular_posts_list = Post.objects.all()[:10]
     context = {
-        'popular_posts_list': popular_posts_list,
+        'post_list': popular_posts_list,
     }
     return render(request, 'index.html', context)
 
@@ -227,6 +227,6 @@ def search(request):
     query = request.GET['search_term']
     search_posts_list = Post.objects.filter(post_title__contains=query)
     context = {
-        'search_posts_list': search_posts_list,
+        'post_list': search_posts_list,
     }
     return render(request, 'index.html', context)

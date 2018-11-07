@@ -1,13 +1,13 @@
 {% extends "base_generic.html" %}
 {# TODO Get Voting Working, comments count, design#}
 {% block content %}
-    {% if latest_posts_list %}
+    {% if post_list %}
         {% load static %}
 
         <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
         <div id="content">
             <ul id="posts">
-                {% for post in latest_posts_list %}
+                {% for post in post_list %}
                     <li id="post_content">
 
                         <div class="voting-section">
@@ -46,8 +46,6 @@
                 {% endfor %}
             </ul>
         </div>
-    {% elif popular_posts_list %}
-        {% load static %}
     {% else %}
         <p>No posts are available.</p>
     {% endif %}
