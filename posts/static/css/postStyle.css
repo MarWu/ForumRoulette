@@ -17,76 +17,10 @@ li .post {
 #post_content:hover {
     box-shadow: 10px 10px 5px lightgray;
     border: 1px solid darkgrey;
+    margin-left: 0.5rem;
     cursor: pointer;
 }
 
-.voting-section {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 2rem;
-    padding: 0;
-}
-
-.like {
-    font-size: 3rem;
-    display: block;
-    cursor: pointer;
-    color: grey;
-    text-decoration: none;
-}
-
-.like_comment{
-    font-size: 3rem;
-    display: block;
-    cursor: pointer;
-    color: grey;
-    text-decoration: none;
-}
-.like_comment:hover{
-    color:green;
-}
-.like:hover {
-    color: green;
-}
-
-.dislike {
-    font-size: 3rem;
-    display: block;
-    cursor: pointer;
-    color: gray;
-    text-decoration: none;
-}
-
-.dislike_comment {
-    font-size: 3rem;
-    display: block;
-    cursor: pointer;
-    color: gray;
-    text-decoration: none;
-}
-
-.dislike:hover {
-    color: red;
-}
-
-.dislike_comment:hover {
-    color: red;
-}
-.score {
-    font-size: 2rem;
-
-}
-
-.hide {
-    display: none;
-}
-
-.glyphicon {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-}
 
 .order {
     display: inline-block;
@@ -130,35 +64,3 @@ h3 {
 
 
 
-.commentblock {
-    display:flex;
-    flex-direction: column;
-    background-color: white;
-    margin: 2rem 2rem 2rem 2rem;
-    list-style-type: none;
-    border-radius: 0.5rem;
-    border: 1px solid lightgrey;
-    box-shadow: 5px 5px 5px lightgray;
-}
-
-.addComment{
-     margin: 2rem 0 2rem 0;
-     border-radius: 0.5rem;
-     border: 1px solid lightgrey;
-    box-shadow: 5px 5px 5px lightgray;
-
-}
-.addComment:hover {
-    box-shadow: 10px 10px 5px lightgray;
-    border: 1px solid darkgrey;
-    cursor: pointer;
-}
-.comment{
-    display:flex;
-    background-color: white;
-    margin: 2rem 2rem 2rem 2rem;
-    list-style-type: none;
-    border-radius: 0.5rem;
-    border: 1px solid lightgrey;
-    box-shadow: 5px 5px 5px lightgray;
-}

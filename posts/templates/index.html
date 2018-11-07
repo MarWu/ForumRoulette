@@ -11,24 +11,22 @@
                     <li id="post_content">
 
                         <div class="voting-section">
-                            <a class="fas fa-angle-up like" id="like"></a>
+                            <a class="fas fa-angle-up like" id="like_{{ forloop.counter}}" href="{% url 'posts:vote' post.id %}"></a>
                             {% for voter in post.up_votes_list.all %}
                                 {% if voter.username == user.username %}
-                                    like
                                     <script>
-                                        like()
+                                        like({{ forloop.parentloop.counter }})
                                     </script>
                                 {% endif %}
                             {% endfor %}
                             <div class="score dislikes hide">{{ post.up_vote_count }}</div>
                             <div class="score unvoted hide">{{ post.down_vote_count }}</div>
                             <div class="score likes">{{ post.vote_difference }}</div>
-                            <a class="fas fa-angle-down  dislike" id="dislike"></a>
+                            <a class="fas fa-angle-down  dislike" id="dislike_{{ forloop.counter }}"></a>
                             {% for voter in post.down_votes_list.all %}
                                 {% if voter.username == user.username %}
-                                    dislike
                                     <script>
-                                        dislike()
+                                        dislike({{ forloop.parentloop.counter }})
                                     </script>
                                 {% endif %}
                             {% endfor %}

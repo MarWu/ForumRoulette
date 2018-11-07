@@ -1,0 +1,67 @@
+.voting-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem;
+    padding: 0;
+}
+
+.like {
+    font-size: 3rem;
+    display: block;
+    cursor: pointer;
+    color: grey;
+    text-decoration: none;
+}
+
+.like_comment{
+    font-size: 3rem;
+    display: block;
+    cursor: pointer;
+    color: grey;
+    text-decoration: none;
+}
+.like_comment:hover{
+    color:green;
+}
+.like:hover {
+    color: green;
+}
+
+.dislike {
+    font-size: 3rem;
+    display: block;
+    cursor: pointer;
+    color: gray;
+    text-decoration: none;
+}
+
+.dislike_comment {
+    font-size: 3rem;
+    display: block;
+    cursor: pointer;
+    color: gray;
+    text-decoration: none;
+}
+
+.dislike:hover {
+    color: red;
+}
+
+.dislike_comment:hover {
+    color: red;
+}
+.score {
+    font-size: 2rem;
+
+}
+
+.hide {
+    display: none;
+}
+
+.glyphicon {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
