@@ -72,7 +72,7 @@ def index(request):
 def popular(request):
     # popular_posts_list = Post.objects.order_by('vote_difference')[:30]  # Cannot sort by model methods
     posts_list = Post.objects.all()
-    popular_posts_list = sorted(posts_list, key=lambda votes: -(votes.up_votes_list.count()))
+    popular_posts_list = sorted(posts_list, key=lambda votes: -(votes.up_votes_list.count()))[:30]
     # popular_posts_list = Post.objects.all()[:10]
     context = {
         'popular_posts_list': popular_posts_list,
@@ -221,3 +221,12 @@ def random_comment(request):
         return redirect('posts:detail', random_id)
     else:
         return redirect('posts:detail', user_info.random_post.id)
+
+
+def search(request):
+    query = request.GET['search_term']
+    search_posts_list = Post.objects.filter(post_title__contains=query)
+    context = {
+        'search_posts_list': search_posts_list,
+    }
+    return render(request, 'index.html', context)

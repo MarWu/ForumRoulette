@@ -14,4 +14,5 @@ urlpatterns = [
     path('<int:comment_id>/vote/comment/<int:is_down_vote>', views.vote_comment, name='vote_comment'),
     path('<int:post_id>/comment/', views.create_comment, name='comment'),
     path('random/', views.random_comment, name='random'),
+    path('search/', views.search, name='search')
 ]
