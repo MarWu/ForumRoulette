@@ -73,6 +73,9 @@ class Comment(models.Model):
     def down_vote_count(self):
         return self.down_votes_list.count()
 
+    def vote_difference(self):
+            return self.up_vote_count() - self.down_vote_count()
+
     def pub_date_printable(self):
         if timezone.now().year - self.pub_date.year > 0:
             return "over " + str(timezone.now().year - self.pub_date.year) + " year(s) ago"

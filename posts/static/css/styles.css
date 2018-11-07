@@ -70,7 +70,9 @@ background-color: lightgray;
 }
 
 
-
+#content {
+    transition: all .5s ease;
+}
 
 .slinput {
   position:relative;
@@ -94,7 +96,7 @@ main .content {
 }
 
 main aside {
-    width: 250px;
+
     background-color: white;
 
 }
@@ -119,7 +121,6 @@ main aside {
     font-size: 14px;
     color: black;
     display: block;
-    transition: 0.3s
 
 }
 
@@ -134,24 +135,15 @@ main aside {
 
 /* Style the links inside the navigation bar */
 aside .topnav a {
+
     float: left;
     color: white;
     text-align: center;
-    padding: 1.5rem 2rem;
+    padding: 15px 20px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 10px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-
-    .sidenav a {
-        font-size: 18px;
-    }
-}
 
 aside a svg {
     transition: all .5s ease;

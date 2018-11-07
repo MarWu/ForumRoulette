@@ -6,69 +6,81 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
-
+    <div id="content"">
     <div id="post_content">
 
+        <div class="voting-section">
+            <a class="fas fa-angle-up like" href="{% url 'posts:vote' post.id %}" id="like"></a>
+            {% if has_voted == 1 %}
+                <script>
+                    like()
+                </script>
+            {% endif %}
+            <div class="score upvote hide">{{ post.up_vote_count }}</div>
+            <div class="score downvote hide">{{ post.down_vote_count }}</div>
+            <div class="score likes">{{ post.vote_difference }}</div>
+            <a class="fas fa-angle-down  dislike" href="{% url 'posts:down_vote' post.id %}" id="dislike"></a>
+            {% if has_down_voted == 1 %}
+                <script>
+                    dislike()
+                </script>
+            {% endif %}
+        </div>
 
-    {% for userinfo in user.userinfo_set.all %}
-        {% if userinfo.random_post == post %}
-            <a href="{% url 'posts:comment' post.id %}">Comment</a>
-        {% endif %}
-    {% endfor %}
+        <div class="link">
+            <h3>{{ post.post_title }}</h3>
+            <p>{{ post.post_text }}</p>
+            <img src="{{ post.post_image }}">
+            <p>Posted: {{ post.pub_date_printable }}</p>
+            <a href='#'>Posted by {{ post.creator }}</a>
+            {% for userinfo in user.userinfo_set.all %}
+                {% if userinfo.random_post == post %}
+                    <div class="addComment">
+                    <a href="{% url 'posts:comment' post.id %}">Add comment</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
-    <div class="voting-section">
-        <a class="fas fa-angle-up like" href="{% url 'posts:vote' post.id %}" id="like"></a>
-        {% if has_voted == 1 %}
-            <script>
-                like()
-            </script>
-        {% endif %}
-        <div class="score upvote ">{{ post.up_vote_count }}</div>
-        <div class="score downvote">{{ post.down_vote_count }}</div>
-        <div class="score likes">{{ post.vote_difference }}</div>
-        <!-- difference nur add funktioniert!!berechnen -->
-        <a class="fas fa-angle-down  dislike" href="{% url 'posts:down_vote' post.id %}" id="dislike"></a>
-        {% if has_down_voted == 1 %}
-            <script>
-                dislike()
-            </script>
-        {% endif %}
-    </div>
-
-    <div class="link">
-        <h3>{{ post.post_title }}</h3>
-                <p>{{ post.post_text }}</p>
-        <img src="{{ post.post_image }}">
-        <p>Posted: {{ post.pub_date_printable }}</p>
-        <a href='#'>Posted by {{ post.creator }}</a>
-
-    </div>
     </div>
     <hr>
     <hr>
     <div class="commentblock">
         {% for comment in post.comment_set.all %}
-            <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
-            <p>Posted: {{ comment.pub_date_printable }}</p>
-            <p>Upvotes: {{ comment.up_vote_count }}
-                <a href="{% url 'posts:vote_comment' comment.id 0 %}">+</a>
-                {% for voter in comment.up_votes_list.all %}
-                    {% if voter.username == user.username %}
-                        You have already voted
-                    {% endif %}
-                {% endfor %}
-            </p>
-            <p>Downvotes: {{ comment.down_vote_count }}
-                <a href="{% url 'posts:vote_comment' comment.id 1 %}">-</a>
-                {% for voter in comment.down_votes_list.all %}
-                    {% if voter.username == user.username %}
-                        You have already voted
-                    {% endif %}
-                {% endfor %}
-            </p>
-            <p>{{ comment.comment_text }}</p>
-            <hr>
+            <div class="comment">
+                <div class="voting-section">
+                    <a class="fas fa-angle-up like" href="{% url 'posts:vote_comment' comment.id 0 %}"
+                       id="like_comment"></a>
+                    {% for voter in comment.up_votes_list.all %}
+                        {% if voter.username == user.username %}
+                            like
+                            <script>
+                                likeComment()
+                            </script>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="score upvote hide">{{ comment.up_vote_count }}</div>
+                    <div class="score downvote hide">{{ comment.down_vote_count }}</div>
+                    <div class="score likes">{{ comment.vote_difference }}</div>
+                    <a class="fas fa-angle-down  dislike" href="{% url 'posts:vote_comment' comment.id 1 %}"
+                       id="dislike_comment"></a>
+                    {% for voter in comment.down_votes_list.all %}
+                        {% if voter.username == user.username %}
+                            dislike
+                            <script>
+                                dislikeComment()
+                            </script>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div>
+                    <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
+                    <p>Posted: {{ comment.pub_date_printable }}</p>
+                    <p>{{ comment.comment_text }}</p>
+                </div>
+            </div>
         {% endfor %}
     </div>
-
+    </div>
 {% endblock %}
