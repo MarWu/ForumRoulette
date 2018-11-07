@@ -7,13 +7,13 @@
 
     <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
     <div id="content"">
-    <div id="post_content">
+    <div class="comment">
 
         <div class="voting-section">
             <a class="fas fa-angle-up like" href="{% url 'posts:vote' post.id %}" id="like"></a>
             {% if has_voted == 1 %}
                 <script>
-                    like()
+                    likepost()
                 </script>
             {% endif %}
             <div class="score upvote hide">{{ post.up_vote_count }}</div>
@@ -22,7 +22,7 @@
             <a class="fas fa-angle-down  dislike" href="{% url 'posts:down_vote' post.id %}" id="dislike"></a>
             {% if has_down_voted == 1 %}
                 <script>
-                    dislike()
+                    dislikepost()
                 </script>
             {% endif %}
         </div>
@@ -36,7 +36,7 @@
             {% for userinfo in user.userinfo_set.all %}
                 {% if userinfo.random_post == post %}
                     <div class="addComment">
-                    <a href="{% url 'posts:comment' post.id %}">Add comment</a>
+                    <a href="{% url 'posts:comment' post.id %}"> Add comment</a>
                     </div>
                 {% endif %}
             {% endfor %}
@@ -50,12 +50,11 @@
             <div class="comment">
                 <div class="voting-section">
                     <a class="fas fa-angle-up like" href="{% url 'posts:vote_comment' comment.id 0 %}"
-                       id="like_comment"></a>
+                       id="like_comment_{{ forloop.counter }}"></a>
                     {% for voter in comment.up_votes_list.all %}
                         {% if voter.username == user.username %}
-                            like
                             <script>
-                                likeComment()
+                                likeComment({{ forloop.parentloop.counter }})
                             </script>
                         {% endif %}
                     {% endfor %}
@@ -63,19 +62,18 @@
                     <div class="score downvote hide">{{ comment.down_vote_count }}</div>
                     <div class="score likes">{{ comment.vote_difference }}</div>
                     <a class="fas fa-angle-down  dislike" href="{% url 'posts:vote_comment' comment.id 1 %}"
-                       id="dislike_comment"></a>
+                       id="dislike_comment_{{ forloop.counter }}"></a>
                     {% for voter in comment.down_votes_list.all %}
                         {% if voter.username == user.username %}
-                            dislike
                             <script>
-                                dislikeComment()
+                                dislikeComment( {{ forloop.parentloop.counter }})
                             </script>
                         {% endif %}
                     {% endfor %}
                 </div>
 
                 <div>
-                    <p>Creator: <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a></p>
+                    <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a>
                     <p>Posted: {{ comment.pub_date_printable }}</p>
                     <p>{{ comment.comment_text }}</p>
                 </div>

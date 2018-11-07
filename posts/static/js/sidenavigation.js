@@ -8,18 +8,26 @@ function closeNav() {
     document.getElementById("content").style.marginLeft = "0";
 }
 
-function like() {
-    document.getElementById("like").style.color="green";
+function likepost() {
+    document.getElementById(`like`).style.color="green";
 }
 
-function dislike() {
-    document.getElementById("dislike").style.color="red";
+function dislikepost() {
+    document.getElementById(`dislike`).style.color="red";
 }
 
-function likeComment() {
-    document.getElementById("like_comment").style.color="green";
+function like(count) {
+    document.getElementById(`like_${count}`).style.color="green";
 }
 
-function dislikeComment() {
-    document.getElementById("dislike_comment").style.color="red";
+function dislike(count) {
+    document.getElementById(`dislike_${count}`).style.color="red";
+}
+
+function likeComment(count) {
+    document.getElementById(`like_comment_${count}`).style.color="green";
+}
+
+function dislikeComment(count) {
+    document.getElementById(`dislike_comment_${count}`).style.color="red";
 }
