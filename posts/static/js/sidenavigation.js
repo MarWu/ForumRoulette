@@ -31,3 +31,7 @@ function likeComment(count) {
 function dislikeComment(count) {
     document.getElementById(`dislike_comment_${count}`).style.color="red";
 }
+function click(){
+
+document.getElementById("example").onclick = function() { window.location = this.getElementsByTagName('a')[0].href; }
+}
