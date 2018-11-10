@@ -18,15 +18,19 @@
 
 <header>
     <div class="header-item left">
-        <img src="{% static 'Images/dice.gif'%}" width="100" alt="">
-       <a href="{% url 'posts:index' %} " class="header-item">Random Roulette </a>
+        <img src="{% static 'Images/dice.gif' %}" width="100" alt="">
+        <a href="{% url 'posts:index' %} " class="header-item">Random Roulette </a>
     </div>
     <a href="#" class="header-item center">irgendein shit</a>
-    <div class="header-item right slinput">
-        <i class="fa fa-search left-icon"></i>
+    <div class="header-item right">
         <form action="{% url 'posts:search' %}" method="get">
             {% csrf_token %}
-            <input type="search" placeholder="Search Random Roulette" value="{{ query }}" name="search_term" required/>
+            <div class="searchContainer">
+                <i class="fa fa-search left-icon"></i>
+                <input type="search" class="searchbar" placeholder="Search Random Roulette" value="{{ query }}"
+                       name="search_term" required/>
+
+            </div>
         </form>
 
     </div>
@@ -39,10 +43,10 @@
     <aside>
         <nav class="topnav">
             <a href="#" onclick="openNav()">
-                    <svg width="30" height="30" id="icoOpen">
-                        <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
-                        <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
-                        <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+                <svg width="30" height="30" id="icoOpen">
+                    <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+                    <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+                    <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
                 </svg>
             </a>
         </nav>
@@ -50,7 +54,7 @@
         <div id="sideNavigation" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
-                <li><a href="{% url 'posts:index' %}" class="fas fa-home">  Home</a></li>
+                <li><a href="{% url 'posts:index' %}" class="fas fa-home"> Home</a></li>
                 <li><a href="{% url 'posts:popular' %}" class="fab fa-hotjar"> Popular Posts</a></li>
                 <li><a href="{% url 'posts:create' %}" class="far fa-paper-plane"> Create Post</a></li>
             </ul>
@@ -73,12 +77,12 @@
 
     <div class="content">
         <div class="wrapper ">
-        {% block content %}
-        {% endblock %}
-        <div class="push"></div>
+            {% block content %}
+            {% endblock %}
+            <div class="push"></div>
         </div>
 
-{% comment %}        <footer class="footer">
+        {% comment %}        <footer class="footer">
             <p>footer</p>
         </footer>{% endcomment %}
 
