@@ -52,7 +52,7 @@ background-color: lightgray;
 }
 
 
-#content {
+.content {
     transition: all .5s ease;
 }
 
@@ -126,9 +126,6 @@ aside a svg {
     transition: all .5s ease;
 }
 
-aside a:hover {
-    #transform: rotate(180deg);
-}
 
 aside ul {
     list-style: none;

@@ -30,7 +30,7 @@ li .post {
     padding: 0;
 }
 
-h3 {
+.linkh3 {
     font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
     flex-direction: row;
 }
@@ -39,7 +39,6 @@ h3 {
     font-size: 2rem;
     margin: 1rem 0rem 0rem 0rem;
     display: block;
-
     color: black;
     text-decoration: none;
 }
@@ -51,15 +50,17 @@ h3 {
 }
 
 .information a {
+    padding-bottom: 0.5rem;
     display: inline-block;
     align-self: flex-end;
     vertical-align: bottom;
-    font-size: 1rem;
+    font-size: 1.5rem;
 
 }
 
 .information a:hover {
     background-color: lightgray;
+    border-radius: 10px;
 }
 
 

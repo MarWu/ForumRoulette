@@ -5,7 +5,6 @@
         {% load static %}
 
         <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
-        <div id="content">
             <ul id="posts">
                 {% for post in post_list %}
                     <li id="post_content" onclick=window.location.href="{% url 'posts:detail' post.id %}">
@@ -43,7 +42,6 @@
                     </li>
                 {% endfor %}
             </ul>
-        </div>
     {% else %}
         <p>No posts are available.</p>
     {% endif %}
