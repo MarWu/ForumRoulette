@@ -5,43 +5,45 @@
         {% load static %}
 
         <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
-            <ul id="posts">
-                {% for post in post_list %}
-                    <li id="post_content" onclick=window.location.href="{% url 'posts:detail' post.id %}">
+        <ul id="posts">
+            {% for post in post_list %}
+                <li id="post_content" onclick=window.location.href="{% url 'posts:detail' post.id %}">
 
-                        <div class="voting-section">
-                            <a class="fas fa-angle-up like" id="like_{{ forloop.counter}}" href="{% url 'posts:vote' post.id %}"></a>
-                            {% for voter in post.up_votes_list.all %}
-                                {% if voter.username == user.username %}
-                                    <script>
-                                        like({{ forloop.parentloop.counter }})
-                                    </script>
-                                {% endif %}
-                            {% endfor %}
-                            <div class="score dislikes hide">{{ post.up_vote_count }}</div>
-                            <div class="score unvoted hide">{{ post.down_vote_count }}</div>
-                            <div class="score likes">{{ post.vote_difference }}</div>
-                            <a class="fas fa-angle-down  dislike" id="dislike_{{ forloop.counter }}" href="{% url 'posts:down_vote' post.id %}"></a>
-                            {% for voter in post.down_votes_list.all %}
-                                {% if voter.username == user.username %}
-                                    <script>
-                                        dislike({{ forloop.parentloop.counter }})
-                                    </script>
-                                {% endif %}
-                            {% endfor %}
+                    <div class="voting-section">
+                        <a class="fas fa-angle-up like" id="like_{{ forloop.counter }}"
+                           href="{% url 'posts:vote' post.id %}"></a>
+                        {% for voter in post.up_votes_list.all %}
+                            {% if voter.username == user.username %}
+                                <script>
+                                    like({{ forloop.parentloop.counter }})
+                                </script>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="score dislikes hide">{{ post.up_vote_count }}</div>
+                        <div class="score unvoted hide">{{ post.down_vote_count }}</div>
+                        <div class="score likes">{{ post.vote_difference }}</div>
+                        <a class="fas fa-angle-down  dislike" id="dislike_{{ forloop.counter }}"
+                           href="{% url 'posts:down_vote' post.id %}"></a>
+                        {% for voter in post.down_votes_list.all %}
+                            {% if voter.username == user.username %}
+                                <script>
+                                    dislike({{ forloop.parentloop.counter }})
+                                </script>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="link">
+                        <h3>{{ post.post_title }}</h3>
+                        <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
+                        <div class="information ">
+                            <a href='#'>Posted by {{ post.creator }} {{ post.pub_date_printable }}</a>
                         </div>
-
-
-                        <div class="link">
-                            <h3>{{ post.post_title }}</h3>
-                            <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
-                            <div class="information ">
-                                <a href='#'>Posted by {{ post.creator }} {{ post.pub_date_printable }}</a>
-                            </div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     {% else %}
         <p>No posts are available.</p>
     {% endif %}
