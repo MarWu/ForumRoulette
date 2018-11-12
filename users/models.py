@@ -18,7 +18,7 @@ class UserInfo(models.Model):
     user_reference = models.ForeignKey(SystemUser, on_delete=models.CASCADE)
     post_count = models.IntegerField(default=0)
     random_post = models.ForeignKey(Post, blank=True, null=True, on_delete=models.DO_NOTHING)
-    xp = models.IntegerField(default=0)
+    xp = models.IntegerField(default=100)
 
     def __str__(self):
         return self.user_reference.username
