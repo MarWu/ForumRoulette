@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="97674049-0932-42c9-ad79-7346a6bd4954" name="Default Changelist" comment="added git ignore">
+    <list default="true" id="97674049-0932-42c9-ad79-7346a6bd4954" name="Default Changelist" comment="added xml to gitignore git ignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -96,7 +96,7 @@
           <entry key="html" value="859" />
           <entry key="js" value="201" />
           <entry key="py" value="2" />
-          <entry key="txt" value="367" />
+          <entry key="txt" value="384" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -104,7 +104,7 @@
           <entry key="CSS" value="645" />
           <entry key="HTML" value="859" />
           <entry key="JavaScript" value="201" />
-          <entry key="PLAIN_TEXT" value="367" />
+          <entry key="PLAIN_TEXT" value="384" />
           <entry key="Python" value="2" />
         </counts>
       </usages-collector>
@@ -129,10 +129,16 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.checkout.as.new.branch" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -143,7 +149,7 @@
         <entry file="file://$PROJECT_DIR$/posts/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -151,8 +157,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/base_generic.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
+            <state relative-caret-position="420">
+              <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -175,7 +181,7 @@
         <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -289,7 +295,7 @@
     <OptionsSetting value="false" id="Update" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -649,7 +655,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542010953381</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added xml to gitignore git ignore">
+      <created>1542011984748</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1542011984748</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -683,8 +696,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23907028" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2418373" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -693,12 +707,12 @@
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4980631" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.4980631" weight="0.32972974" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="6" sideWeight="0.4980631" visible="true" weight="0.32972974" />
       <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.60376316" weight="0.32864866" />
       <window_info anchor="bottom" id="manage.py@ForumRoulette" order="8" sideWeight="0.4991699" visible="true" weight="0.25513515" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32972974" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" visible="true" weight="0.32864866" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" weight="0.3279396" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32864866" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5019369" side_tool="true" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4997233" weight="0.32972974" />
@@ -787,7 +801,8 @@
     <MESSAGE value="Changed Searchbar" />
     <MESSAGE value="Now every page moves when opening the sidebar." />
     <MESSAGE value="added git ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added git ignore" />
+    <MESSAGE value="added xml to gitignore git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added xml to gitignore git ignore" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/posts/admin.py">
@@ -987,12 +1002,15 @@
     <entry file="file://$PROJECT_DIR$/posts/static/Images/testdice.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/__init__.py">
+    <entry file="file://$PROJECT_DIR$/posts/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users/templates/signup.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1001,20 +1019,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users/templates/signup.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/posts/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        <state relative-caret-position="360">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base_generic.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
+        <state relative-caret-position="420">
+          <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
         </state>
       </provider>
     </entry>
