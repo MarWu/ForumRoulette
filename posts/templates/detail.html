@@ -32,7 +32,7 @@
             <p>{{ post.post_text }}</p>
             <img src="{{ post.post_image }}">
             <p>Posted: {{ post.pub_date_printable }}</p>
-            <a href='#'>Posted by {{ post.creator }}</a>
+            <a href="{% url 'users:profile' post.creator %}" >Posted by {{ post.creator }}</a>
             {% for userinfo in user.userinfo_set.all %}
                 {% if userinfo.random_post == post %}
                     <div class="addComment">
