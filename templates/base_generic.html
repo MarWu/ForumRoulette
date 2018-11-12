@@ -11,6 +11,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script src="{% static "js/sidenavigation.js" %}"></script>
+    <script src="{% static "js/vote.js" %}"></script>
 
 
 </head>
@@ -18,15 +19,19 @@
 
 <header>
     <div class="header-item left">
-        <img src="{% static 'Images/dice.gif'%}" width="100" alt="">
-       <a href="{% url 'posts:index' %} " class="header-item">Random Roulette </a>
+        <img src="{% static 'Images/dice.gif' %}" width="100" alt="">
+        <a href="{% url 'posts:index' %} " class="header-item">Random Roulette </a>
     </div>
-    <a href="#" class="header-item center">irgendein shit</a>
-    <div class="header-item right slinput">
-        <i class="fa fa-search left-icon"></i>
+    <a href="https://birdsarentreal.com/" class="header-item center">It's a movement!</a>
+    <div class="header-item right">
         <form action="{% url 'posts:search' %}" method="get">
             {% csrf_token %}
-            <input type="search" placeholder="Search Random Roulette" value="{{ query }}" name="search_term" required/>
+            <div class="searchContainer">
+                <i class="fa fa-search left-icon"></i>
+                <input type="search" class="searchbar" placeholder="Search Random Roulette" value="{{ query }}"
+                       name="search_term" required/>
+
+            </div>
         </form>
 
     </div>
@@ -50,7 +55,7 @@
         <div id="sideNavigation" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
-                <li><a href="{% url 'posts:index' %}" class="fas fa-home">  Home</a></li>
+                <li><a href="{% url 'posts:index' %}" class="fas fa-home"> Home</a></li>
                 <li><a href="{% url 'posts:popular' %}" class="fab fa-hotjar"> Popular Posts</a></li>
                 <li><a href="{% url 'posts:create' %}" class="far fa-paper-plane"> Create Post</a></li>
             </ul>
@@ -71,15 +76,15 @@
     </aside>
 
 
-    <div class="content">
+    <div class="content" id="content">
         <div class="wrapper ">
-        {% block content %}
-        {% endblock %}
-        <div class="push"></div>
+            {% block content %}
+            {% endblock %}
         </div>
-        <footer class="footer">
+
+        {% comment %}        <footer class="footer">
             <p>footer</p>
-        </footer>
+        </footer>{% endcomment %}
 
 
     </div>

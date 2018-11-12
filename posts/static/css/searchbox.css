@@ -1,0 +1,24 @@
+.searchbar{
+    flex:1;
+}
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+}
+.searchbar {
+    display: flex;
+  padding:1rem;
+  width:100%;
+  border:2px solid #ccc;
+  padding-left:3rem;
+  color:black;
+  font-family: arial,sans-serif;
+  font-size: 1.5rem;
+       border-radius: 2.5rem;
+}
+
+.left-icon {
+    padding: 1rem 1rem 1rem;
+    color: gray;
+}
+

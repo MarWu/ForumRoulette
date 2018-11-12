@@ -6,7 +6,7 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'css/postStyle.css' %}">
-    <div id="content">
+
     <div class="comment">
 
         <div class="voting-section">
@@ -44,7 +44,6 @@
 
     </div>
     <hr>
-    <hr>
     <div class="commentblock">
         {% for comment in post.comment_set.all %}
             <div class="comment">
@@ -79,6 +78,5 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
     </div>
 {% endblock %}
