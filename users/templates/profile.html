@@ -14,6 +14,7 @@
     </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
+    <a href="{% url "posts:user_posts_list" selected_user.username %}">List of posts from this user</a>
     <p>XP: {{ user_info.xp }}</p>
     <p>Posts available: {{ user_info.posts_available }}</p>
     <p>Random Post: {{ user_info.random_post }}</p>

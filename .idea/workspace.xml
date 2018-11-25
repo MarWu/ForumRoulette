@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97674049-0932-42c9-ad79-7346a6bd4954" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Kunde.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Kunde_5J2yzKg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Kunde_D99YW7l.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Kunde_YVdKRA0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Kunde_cLh6443.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/profilePictures/Geschaeft-Lieferant.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/migrations/0008_auto_20181125_1107.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users/templates/profile_picture.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+            <state relative-caret-position="450">
+              <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -61,28 +48,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/models.py">
+        <entry file="file://$PROJECT_DIR$/posts/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="120">
+              <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/forms.py">
+        <entry file="file://$PROJECT_DIR$/users/templates/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/posts/templates/detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="240">
+              <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -90,56 +71,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/views.py">
+        <entry file="file://$PROJECT_DIR$/posts/templates/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="45" column="107" selection-start-line="45" selection-start-column="107" selection-end-line="45" selection-end-column="107" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="435">
+              <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ForumRoulette/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1950">
+              <caret line="130" column="23" selection-start-line="130" selection-start-column="23" selection-end-line="130" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/users/templates/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/templates/profile_picture.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/posts/templates/createPost.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/posts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="117" column="61" selection-start-line="117" selection-start-column="51" selection-end-line="117" selection-end-column="61" />
+            <state relative-caret-position="450">
+              <caret line="96" column="52" lean-forward="true" selection-start-line="96" selection-start-column="52" selection-end-line="96" selection-end-column="52" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -200,8 +160,6 @@
         <option value="$PROJECT_DIR$/posts/static/css/styles.css" />
         <option value="$PROJECT_DIR$/posts/static/css/commentsection.css" />
         <option value="$PROJECT_DIR$/posts/templates/createPost.html" />
-        <option value="$PROJECT_DIR$/posts/urls.py" />
-        <option value="$PROJECT_DIR$/posts/views.py" />
         <option value="$PROJECT_DIR$/ForumRoulette/settings.py" />
         <option value="$PROJECT_DIR$/ForumRoulette/urls.py" />
         <option value="$PROJECT_DIR$/posts/templates/detail.html" />
@@ -209,11 +167,13 @@
         <option value="$PROJECT_DIR$/posts/forms.py" />
         <option value="$PROJECT_DIR$/users/templates/signup.html" />
         <option value="$PROJECT_DIR$/users/forms.py" />
-        <option value="$PROJECT_DIR$/users/urls.py" />
         <option value="$PROJECT_DIR$/posts/models.py" />
         <option value="$PROJECT_DIR$/users/templates/profile_picture.html" />
         <option value="$PROJECT_DIR$/users/views.py" />
+        <option value="$PROJECT_DIR$/users/urls.py" />
         <option value="$PROJECT_DIR$/users/templates/profile.html" />
+        <option value="$PROJECT_DIR$/posts/urls.py" />
+        <option value="$PROJECT_DIR$/posts/views.py" />
       </list>
     </option>
   </component>
@@ -285,18 +245,18 @@
               <item name="ForumRoulette" type="b2602c69:ProjectViewProjectNode" />
               <item name="ForumRoulette" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ForumRoulette" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ForumRoulette" type="462c0819:PsiDirectoryNode" />
+              <item name="posts" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ForumRoulette" type="b2602c69:ProjectViewProjectNode" />
               <item name="ForumRoulette" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ForumRoulette" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ForumRoulette" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="profilePictures" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ForumRoulette" type="b2602c69:ProjectViewProjectNode" />
@@ -382,8 +342,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django tests.Test: posts.tests" />
       <item itemvalue="Django server.ForumRoulette" />
+      <item itemvalue="Django tests.Test: posts.tests" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -511,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543143695328</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="commit to before merge">
+      <created>1543146477590</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1543146477590</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -541,7 +508,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12678000" />
+    <option name="totallyTimeSpent" value="14029000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -554,13 +521,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18096292" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4980631" visible="true" weight="0.21598272" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4975097" weight="0.21598272" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4980631" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -570,8 +538,8 @@
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.32937366" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997233" weight="0.32829374" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32829374" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5019369" side_tool="true" weight="0.4" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50249034" side_tool="true" weight="0.21598272" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4997233" weight="0.32972974" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -668,7 +636,8 @@
     <MESSAGE value="Implemented an image-upload for posts" />
     <MESSAGE value="Fixed inability to show posts w/o images" />
     <MESSAGE value="Added funcionality for setting and changing profile-pictures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added funcionality for setting and changing profile-pictures" />
+    <MESSAGE value="commit to before merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit to before merge" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/pip-10.0.1-py3.6.egg/pip/_vendor/distlib/_backport/shutil.py">
@@ -797,20 +766,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ForumRoulette/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="345">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#637#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="83" selection-start-line="7" selection-start-column="83" selection-end-line="7" selection-end-column="83" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -836,20 +795,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/posts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        <state relative-caret-position="450">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -858,8 +807,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/posts/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="80" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -877,37 +826,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/views.py">
+    <entry file="file://$PROJECT_DIR$/posts/templates/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="117" column="61" selection-start-line="117" selection-start-column="51" selection-end-line="117" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="435">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="45" column="107" selection-start-line="45" selection-start-column="107" selection-end-line="45" selection-end-column="107" />
+        <state relative-caret-position="569">
+          <caret line="48" column="66" selection-start-line="48" selection-start-column="66" selection-end-line="48" selection-end-column="66" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/posts/templates/detail.html">
+    <entry file="file://$PROJECT_DIR$/users/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="135">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/users/templates/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+        <state relative-caret-position="240">
+          <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/posts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/posts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="96" column="52" lean-forward="true" selection-start-line="96" selection-start-column="52" selection-end-line="96" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
