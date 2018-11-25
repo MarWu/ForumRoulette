@@ -19,6 +19,7 @@ class UserInfo(models.Model):
     post_count = models.IntegerField(default=0)
     random_post = models.ForeignKey(Post, blank=True, null=True, on_delete=models.DO_NOTHING)
     xp = models.IntegerField(default=100)
+    profile_picture = models.ImageField(upload_to='profilePictures/', blank=True)
 
     def __str__(self):
         return self.user_reference.username
@@ -30,5 +31,6 @@ class UserInfo(models.Model):
             return posts_available_count
         else:
             return 0
+
     def xp_modulo(self):
-        return self.xp%100;
+        return self.xp % 100

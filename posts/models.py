@@ -6,8 +6,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-from ForumRoulette.settings import MEDIA_ROOT
-
 
 class Post(models.Model):
     creator = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=0)
