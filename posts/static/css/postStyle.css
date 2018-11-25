@@ -14,6 +14,11 @@ li .post {
     box-shadow: 5px 5px 5px lightgray;
 }
 
+.responsive{
+    width: 100%;
+    max-width: 80rem;
+    float:none;
+}
 #post_content:hover {
     box-shadow: 10px 10px 5px lightgray;
     border: 1px solid darkgrey;
@@ -37,7 +42,7 @@ li .post {
 
 .link a {
     font-size: 2rem;
-    margin: 1rem 0rem 0rem 0rem;
+    margin: 1rem 0 0rem 0rem;
     display: block;
     color: black;
     text-decoration: none;
