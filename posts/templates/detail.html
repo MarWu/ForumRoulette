@@ -30,13 +30,13 @@
         <div class="link">
             <h3>{{ post.post_title }}</h3>
             <p>{{ post.post_text }}</p>
-            <img src="{{ post.post_image }}">
+            <img src="{{ post.post_image.url }}">
             <p>Posted: {{ post.pub_date_printable }}</p>
             <a href="{% url 'users:profile' post.creator %}" >Posted by {{ post.creator }}</a>
             {% for userinfo in user.userinfo_set.all %}
                 {% if userinfo.random_post == post %}
                     <div class="addComment">
-                    <a href="{% url 'posts:comment' post.id %}"> Add comment</a>
+                        <a href="{% url 'posts:comment' post.id %}"> Add comment</a>
                     </div>
                 {% endif %}
             {% endfor %}
@@ -65,7 +65,7 @@
                     {% for voter in comment.down_votes_list.all %}
                         {% if voter.username == user.username %}
                             <script>
-                                dislikeComment( {{ forloop.parentloop.counter }})
+                                dislikeComment({{ forloop.parentloop.counter }})
                             </script>
                         {% endif %}
                     {% endfor %}

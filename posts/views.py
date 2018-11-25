@@ -1,6 +1,10 @@
+import os
 import random
 
+from django.conf import settings
+
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.files.storage import default_storage
 from django.utils import timezone
 
 from django.http import HttpResponse
@@ -61,8 +65,15 @@ def has_already_down_voted_comment(current_comment, current_user):
         return 0
 
 
+def image_upload(request):
+    save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file'])
+    path = default_storage.save(save_path, request.FILES['file'])
+    # document = Document.objects.create(document=path, upload_by=request.user)
+    return default_storage.path(path)
+
+
 def index(request):
-    latest_posts_list = Post.objects.order_by('-pub_date')[:30]     # TODO: Pagination
+    latest_posts_list = Post.objects.order_by('-pub_date')[:30]
     context = {
         'post_list': latest_posts_list,
     }
@@ -94,15 +105,17 @@ def detail(request, post_id):
 
 
 @login_required
-@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')  # TODO: Improve forwarding
-@user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')  # TODO: Improve forwarding
+@user_passes_test(not_admin_check, login_url='/ADMINS_CANT_CREATE_POSTS/')
+@user_passes_test(can_post_check, login_url='/NOT_ENOUGH_XP/')
 def create_post(request):
     if request.method == 'POST':
         form = CreatePostForm(request.POST, request.FILES)
         if form.is_valid():
             current_user = request.user
+            # image_path = image_upload(request)
             p = Post(creator=current_user, post_title=form.cleaned_data['post_title'],
-                     post_text=form.cleaned_data['post_text'], pub_date=timezone.now())
+                     post_text=form.cleaned_data['post_text'], pub_date=timezone.now(),
+                     post_image=form.cleaned_data['post_image'])
             p.save()
             user_info = get_object_or_404(UserInfo, user_reference=current_user)
             user_info.post_count += 1
@@ -206,7 +219,7 @@ def create_comment(request, post_id):  # Create permissions
             form = CreateCommentForm()
         return render(request, 'createComment.html', {'form': form, 'post': current_post})
     else:
-        return HttpResponse("You are not allowed to comment on this post.")  # TODO: Proper ERROR page!
+        return HttpResponse("You are not allowed to comment on this post.")
 
 
 def random_comment(request):
