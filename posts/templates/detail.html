@@ -27,7 +27,9 @@
         <div class="link">
             <h3>{{ post.post_title }}</h3>
             <p>{{ post.post_text }}</p>
+        {% if post.post_image %}
             <img src="{{ post.post_image.url }}">
+        {% endif %}
             <p>Posted: {{ post.pub_date_printable }}</p>
             <a href="{% url 'users:profile' post.creator %}" >Posted by {{ post.creator }}</a>
             {% for userinfo in user.userinfo_set.all %}

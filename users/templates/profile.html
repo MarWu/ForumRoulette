@@ -4,16 +4,23 @@
 
 {% block content %}
 
-{% load static %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 
-<h2>{{ selected_user.username }}</h2>
+    <h2>{{ selected_user.username }}</h2>
 
     <div class="outer">
         <div class="xp-bar" style="width:{{ user_info.xp_modulo }}%">{{ user_info.xp_modulo }}XP</div>
     </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
-    <p>Posts available: {{ user_info.posts_available }}</p> {# TODO: Remove and only list in logged-in users profile #}
-    <p>Random Post: {{ user_info.random_post }}</p> {# TODO: Remove and only list on logged-in users profile #}
+    <p>XP: {{ user_info.xp }}</p>
+    <p>Posts available: {{ user_info.posts_available }}</p>
+    <p>Random Post: {{ user_info.random_post }}</p>
+    {% if selected_user == request.user %}
+        <a href="{% url "users:profile_picture" %}">Change your profile picture</a>
+    {% endif %}
+    {% if user_info.profile_picture %}
+        <img src="{{ user_info.profile_picture.url }}">
+    {% endif %}
 {% endblock %}
