@@ -39,6 +39,12 @@
   color: black;
 }
 
+.userposts{
+  text-decoration: none;
+  border-bottom: 2px solid lightgray;
+  color:black
+}
+
 .changeProfilPicture:hover{
   background-color: lightgray;
 }

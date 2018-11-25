@@ -20,7 +20,7 @@
 
     </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
-    <a href="{% url "posts:user_posts_list" selected_user.username %}">Post Count: {{ user_info.post_count }}</a>
+    <a class="userposts" href="{% url "posts:user_posts_list" selected_user.username %}">Post Count: {{ user_info.post_count }}</a>
     {% if user.is_authenticated %}
         <p>Posts available: {{ user_info.posts_available }}</p>
         <p>Random Post: {{ user_info.random_post }}</p>
