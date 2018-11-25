@@ -14,9 +14,10 @@
     </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
-    <p>XP: {{ user_info.xp }}</p>
+    {% if user.is_authenticated %}
     <p>Posts available: {{ user_info.posts_available }}</p>
     <p>Random Post: {{ user_info.random_post }}</p>
+    {% endif %}
     {% if selected_user == request.user %}
         <a href="{% url "users:profile_picture" %}">Change your profile picture</a>
     {% endif %}
