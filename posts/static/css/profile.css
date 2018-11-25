@@ -1,6 +1,13 @@
+.userinformation{
+  display: flex;
+  flex-direction: column;
+}
+.userheader {
+  display: flex;
+  flex-direction: row;
+}
 
 .outer {
-  width: 20%;
   background: rgb(0, 48, 66);
   border-radius: 4px;
 }
@@ -17,4 +24,10 @@
     rgb(166, 230, 255) 20%,
     rgb(0, 183, 255) 50%
   )
+}
+
+.profilepicture{
+    width: 100%;
+    max-width: 10rem;
+    float:none;
 }

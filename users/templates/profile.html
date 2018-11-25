@@ -6,22 +6,29 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <div class="userinformation">
+    <div class="userheader">
+        {% if user_info.profile_picture %}
+            <img src="{{ user_info.profile_picture.url }}" class="profilepicture" alt="Error Picture not found">
+        {% endif %}
+        <h2>{{ selected_user.username }}</h2>
+    </div>
 
-    <h2>{{ selected_user.username }}</h2>
+        <div class="outer">
+            <div class="xp-bar" style="width:{{ user_info.xp_modulo }}%">{{ user_info.xp_modulo }}XP</div>
+        </div>
 
-    <div class="outer">
-        <div class="xp-bar" style="width:{{ user_info.xp_modulo }}%">{{ user_info.xp_modulo }}XP</div>
     </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
     <a href="{% url "posts:user_posts_list" selected_user.username %}">List of posts from this user</a>
     <p>XP: {{ user_info.xp }}</p>
-    <p>Posts available: {{ user_info.posts_available }}</p>
-    <p>Random Post: {{ user_info.random_post }}</p>
+    {% if user.is_authenticated %}
+        <p>Posts available: {{ user_info.posts_available }}</p>
+        <p>Random Post: {{ user_info.random_post }}</p>
+    {% endif %}
     {% if selected_user == request.user %}
         <a href="{% url "users:profile_picture" %}">Change your profile picture</a>
     {% endif %}
-    {% if user_info.profile_picture %}
-        <img src="{{ user_info.profile_picture.url }}">
-    {% endif %}
+
 {% endblock %}
