@@ -1,0 +1,20 @@
+
+.outer {
+  width: 20%;
+  background: rgb(0, 48, 66);
+  border-radius: 4px;
+}
+
+.xp-bar {
+  border: 2px solid rgb(0, 110, 153);
+  color: white;
+  border-radius: 4px;
+  display: block;
+  height: 1em;
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 183, 255),
+    rgb(166, 230, 255) 20%,
+    rgb(0, 183, 255) 50%
+  )
+}
