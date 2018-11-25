@@ -91,6 +91,16 @@ def popular(request):
     return render(request, 'index.html', context)
 
 
+def post_list(request, username):
+    user = get_object_or_404(SystemUser, username=username)
+    posts_list = Post.objects.all()
+    user_posts_list = posts_list.filter(creator=user).order_by('-pub_date')
+    context = {
+        'post_list': user_posts_list,
+    }
+    return render(request, 'index.html', context)
+
+
 def post(request, post_id):
     return HttpResponse("You're looking at the post with id %i" % post_id)
 

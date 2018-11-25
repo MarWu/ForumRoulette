@@ -6,6 +6,7 @@ app_name = 'posts'
 urlpatterns = [
     path('', views.index, name='index'),
     path('popular/', views.popular, name='popular'),
+    path('post_list/<str:username>/', views.post_list, name='user_posts_list'),
     path('<int:post_id>/', views.detail, name='detail'),
     path('create/', views.create_post, name='create'),
     path('<int:post_id>/vote/', views.vote, name='vote'),
