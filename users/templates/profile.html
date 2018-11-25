@@ -3,7 +3,15 @@
 {% block title %}<title>{{ selected_user.username }}</title>{% endblock %}
 
 {% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
 <h2>{{ selected_user.username }}</h2>
+
+    <div class="outer">
+        <div class="xp-bar" style="width:{{ user_info.xp_modulo }}%">{{ user_info.xp_modulo }}XP</div>
+    </div>
     <p>Created: {{ selected_user.date_joined.date }}</p>
     <p>Post count: {{ user_info.post_count }}</p>
     <p>XP: {{ user_info.xp }}</p>

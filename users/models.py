@@ -30,3 +30,5 @@ class UserInfo(models.Model):
             return posts_available_count
         else:
             return 0
+    def xp_modulo(self):
+        return self.xp%100;
