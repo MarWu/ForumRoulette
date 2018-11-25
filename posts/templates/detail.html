@@ -31,7 +31,7 @@
         {% endif %}</p>
 
             <p>Posted: {{ post.pub_date_printable }}</p>
-            <a href="{% url 'users:profile' post.creator %}" >Posted by {{ post.creator }}</a>
+            <a class="profillink"href="{% url 'users:profile' post.creator %}" >Posted by {{ post.creator }}</a>
             {% for userinfo in user.userinfo_set.all %}
                 {% if userinfo.random_post == post %}
                     <div class="addComment">
@@ -71,7 +71,7 @@
                 </div>
 
                 <div>
-                    <a href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a>
+                    <a class="profillink"href="{% url 'users:profile' comment.creator %}">{{ comment.creator }}</a>
                     <p>Posted: {{ comment.pub_date_printable }}</p>
                     <p>{{ comment.comment_text }}</p>
                 </div>

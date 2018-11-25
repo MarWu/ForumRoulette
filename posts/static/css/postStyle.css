@@ -62,13 +62,16 @@ li .post {
     align-self: flex-end;
     vertical-align: bottom;
     font-size: 1.5rem;
-
 }
 
-.information a:hover {
+
+
+.profillink {
+    text-decoration: none;
+    color: black;
+
+}
+.profillink:hover {
     background-color: lightgray;
     border-radius: 10px;
 }
-
-
-

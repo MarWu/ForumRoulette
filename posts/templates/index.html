@@ -38,7 +38,7 @@
                         <h3>{{ post.post_title }}</h3>
                         <a href="{% url 'posts:detail' post.id %}" class="text">{{ post.post_text }}</a>
                         <div class="information ">
-                            <a href="{% url 'users:profile' post.creator %}">Posted by {{ post.creator }} {{ post.pub_date_printable }}</a>
+                            <a class="profillink"href="{% url 'users:profile' post.creator %}">Posted by {{ post.creator }} {{ post.pub_date_printable }}</a>
                         </div>
                     </div>
                 </li>
