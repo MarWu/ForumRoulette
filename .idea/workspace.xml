@@ -382,8 +382,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Django server.ForumRoulette" />
       <item itemvalue="Django tests.Test: posts.tests" />
+      <item itemvalue="Django server.ForumRoulette" />
     </list>
   </component>
   <component name="SvnConfiguration">
